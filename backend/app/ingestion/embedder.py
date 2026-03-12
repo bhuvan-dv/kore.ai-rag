@@ -9,7 +9,7 @@ ChromaDB is a vector database: instead of SQL queries you search by
 import chromadb
 from chromadb.config import Settings
 from google import genai
-
+from sentence_transformers import SentenceTransformer
 from app.config import (
     GOOGLE_API_KEY,
     EMBEDDING_MODEL,
@@ -22,23 +22,11 @@ from app.config import (
 
 
 def get_embedding_function():
-    """
-    Returns a function that takes a list of strings and returns
-    a list of vectors (each is 768 floats).
-
-    task_type="retrieval_document" tells Google's model these are
-    documents being stored (not queries being searched). Google
-    optimizes the embedding differently for each case.
-    """
-    client = genai.Client(api_key=GOOGLE_API_KEY)
+    model = SentenceTransformer("all-MiniLM-L6-v2")  # 22MB, blazing fast
 
     def embed_texts(texts: list[str]) -> list[list[float]]:
-        result = client.models.embed_content(
-            model=EMBEDDING_MODEL,
-            contents=texts,
-            config={"task_type": "retrieval_document"},
-        )
-        return [e.values for e in result.embeddings]
+        embeddings = model.encode(texts)
+        return embeddings.tolist()
 
     return embed_texts
 
