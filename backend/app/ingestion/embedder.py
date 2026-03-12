@@ -110,6 +110,33 @@ def embed_and_store(chunks: list, batch_size: int = 50) -> int:
     return stored
 
 
+# ---------- API-callable pipeline ----------
+
+
+def run_ingestion_pipeline() -> dict:
+    """
+    Called by POST /api/ingest.
+    Runs the full load → chunk → embed → store pipeline and returns stats.
+    """
+    from app.ingestion.loader import load_documents
+    from app.ingestion.chunker import chunk_documents
+
+    docs = load_documents()
+    if not docs:
+        return {"docs_loaded": 0, "chunks_created": 0, "chunks_stored": 0, "status": "no documents found — run scraper.py first"}
+
+    chunks = chunk_documents(docs)
+    clear_collection()
+    stored = embed_and_store(chunks)
+
+    return {
+        "docs_loaded": len(docs),
+        "chunks_created": len(chunks),
+        "chunks_stored": stored,
+        "status": "ok",
+    }
+
+
 # --- Run the full pipeline directly ---
 # cd backend && uv run python -m app.ingestion.embedder
 if __name__ == "__main__":
