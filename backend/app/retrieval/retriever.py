@@ -29,6 +29,8 @@ class RetrievedChunk:
 
 # ---------- Core retrieval ----------
 
+_model = SentenceTransformer("all-MiniLM-L6-v2")
+
 
 def retrieve(query: str, top_k: int = TOP_K) -> list[RetrievedChunk]:
     """
@@ -38,8 +40,8 @@ def retrieve(query: str, top_k: int = TOP_K) -> list[RetrievedChunk]:
       distance = 1 - cosine_similarity
     So we convert:  score = 1 - distance
     """
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-    query_embedding = model.encode([query])[0].tolist()
+
+    query_embedding = _model.encode([query])[0].tolist()
 
     collection = get_or_create_collection()
     results = collection.query(
