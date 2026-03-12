@@ -37,17 +37,11 @@ Why this design?
 
 import json
 from langgraph.graph import StateGraph, START, END
-import google.generativeai as genai
 
-from app.config import GOOGLE_API_KEY, GENERATION_MODEL, CONFIDENCE_THRESHOLD
+from app.config import CONFIDENCE_THRESHOLD
+from app.llm import llm_generate
 from app.agent.state import AgentState
 from app.agent.tools import vector_search_tool, api_lookup_tool, structured_lookup_tool
-
-
-# ── Initialize Gemini ────────────────────────────────────────────
-
-genai.configure(api_key=GOOGLE_API_KEY)
-_llm = genai.GenerativeModel(GENERATION_MODEL)
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -81,8 +75,8 @@ Query: "{query}"
 Respond with ONLY the word: simple, complex, or api_lookup"""
 
     try:
-        response = _llm.generate_content(prompt)
-        query_type = response.text.strip().lower().strip('"').strip("'")
+        response = llm_generate(prompt)
+        query_type = response.strip().lower().strip('"').strip("'")
         if query_type not in ("simple", "complex", "api_lookup"):
             query_type = "simple"
     except Exception as e:
@@ -141,8 +135,8 @@ Return ONLY a JSON array of strings. No explanation, no markdown.
 Example: ["sub-question 1", "sub-question 2"]"""
 
     try:
-        response = _llm.generate_content(prompt)
-        text = response.text.strip().replace("```json", "").replace("```", "").strip()
+        text = llm_generate(prompt)
+        text = text.strip().replace("```json", "").replace("```", "").strip()
         sub_queries = json.loads(text)
         if not isinstance(sub_queries, list) or len(sub_queries) == 0:
             sub_queries = [state["query"]]
@@ -294,8 +288,7 @@ QUESTION: {state['query']}
 ANSWER:"""
 
     try:
-        response = _llm.generate_content(prompt)
-        answer = response.text.strip()
+        answer = llm_generate(prompt)
     except Exception as e:
         answer = f"Error generating answer: {e}"
 
@@ -308,7 +301,7 @@ ANSWER:"""
                 "action": "synthesize_answer",
                 "description": f"Generated answer from {len(search_results)} chunks"
                 + (" + API data" if api_result else ""),
-                "tool_used": "gemini_generation",
+                "tool_used": "llm_generation",
             }
         ],
     }
