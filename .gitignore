@@ -281,5 +281,5 @@ dist-ssr
 package-lock.json
 
 # Generated data — not source code
-data/documents/
-data/chroma_db/
+backend/data/documents/
+backend/data/chroma_db/
