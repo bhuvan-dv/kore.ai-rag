@@ -4,6 +4,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.models.schemas import HealthResponse
 from app.ingestion.embedder import get_or_create_collection, run_ingestion_pipeline
 
+from app.models.schemas import (
+    QueryRequest,
+    QueryResponse,
+    SourceDocument,
+    ReasoningStep,
+)
+from app.agent.graph import run_agent
+
 app = FastAPI(title="Kore.ai Knowledge Search Agent", version="0.1.0")
 
 app.add_middleware(
@@ -59,13 +67,82 @@ async def ingest(background_tasks: BackgroundTasks):
     Returns immediately — poll /api/ingest/status to track progress.
     """
     if _ingestion_state["status"] == "running":
-        return {"status": "already running", "message": "Ingestion is already in progress"}
+        return {
+            "status": "already running",
+            "message": "Ingestion is already in progress",
+        }
 
     background_tasks.add_task(_run_ingestion_with_tracking)
-    return {"status": "ingestion started", "message": "Poll /api/ingest/status for updates"}
+    return {
+        "status": "ingestion started",
+        "message": "Poll /api/ingest/status for updates",
+    }
 
 
 @app.get("/api/ingest/status")
 async def ingest_status():
     """Returns current ingestion state: idle | running | done | failed."""
     return _ingestion_state
+
+
+@app.post("/api/query", response_model=QueryResponse)
+async def query(request: QueryRequest):
+    """
+    Main endpoint — runs a question through the full agent pipeline.
+
+    Pipeline: classify → route → search → synthesize → score
+    Returns: answer + sources + reasoning trace + confidence
+    """
+    try:
+        result = await run_agent(
+            query=request.query,
+            top_k=request.top_k,
+            conversation_id=request.conversation_id,
+        )
+
+        # Convert raw dicts → Pydantic models for validation
+        sources = [
+            SourceDocument(
+                content=r.get("content", ""),
+                source=r.get("metadata", {}).get("source", "unknown"),
+                score=r.get("score", 0.0),
+                chunk_id=r.get("chunk_id", ""),
+            )
+            for r in result.get("search_results", [])
+        ]
+
+        reasoning = [
+            ReasoningStep(
+                step=r.get("step", 0),
+                action=r.get("action", ""),
+                description=r.get("description", ""),
+                tool_used=r.get("tool_used"),
+            )
+            for r in result.get("reasoning", [])
+        ]
+
+        confidence = result.get("confidence", 0.0)
+        is_confident = result.get("is_confident", False)
+        answer = result.get("answer", "Unable to generate an answer. Please try again.")
+
+        # Guardrail: prepend low-confidence warning (PDF requirement 2.5)
+        if not is_confident:
+            answer = (
+                "⚠️ I'm not confident in this answer. "
+                "Please verify with the source documents below.\n\n" + answer
+            )
+
+        return QueryResponse(
+            answer=answer,
+            sources=sources,
+            reasoning=reasoning,
+            confidence=confidence,
+            is_confident=is_confident,
+            query=request.query,
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Agent error: {str(e)}",
+        )
