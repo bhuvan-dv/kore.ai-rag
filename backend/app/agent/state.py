@@ -52,7 +52,8 @@ class AgentState(TypedDict):
     # ── Generation (set by synthesize node) ──
     answer: str
     confidence: float  # 0.0 to 1.0
-    is_confident: bool  # True if confidence >= threshold
+    confidence_level: str  # "high" | "medium" | "low"
+    is_confident: bool  # Backward-compatible shortcut for high confidence only
 
     # ── Reasoning trace (APPENDED by every node) ──
     # Annotated with operator.add so each node's steps accumulate

@@ -38,7 +38,7 @@ Why this design?
 import json
 from langgraph.graph import StateGraph, START, END
 
-from app.config import CONFIDENCE_THRESHOLD
+from app.config import HIGH_CONFIDENCE_THRESHOLD, MEDIUM_CONFIDENCE_THRESHOLD
 from app.llm import llm_generate
 from app.agent.state import AgentState
 from app.agent.tools import vector_search_tool, api_lookup_tool, structured_lookup_tool
@@ -332,12 +332,27 @@ def score_confidence(state: AgentState) -> dict:
         confidence = min(1.0, confidence + 0.15)
 
     confidence = round(max(0.0, min(1.0, confidence)), 4)
-    is_confident = confidence >= CONFIDENCE_THRESHOLD
+
+    if confidence >= HIGH_CONFIDENCE_THRESHOLD:
+        confidence_level = "high"
+    elif confidence >= MEDIUM_CONFIDENCE_THRESHOLD:
+        confidence_level = "medium"
+    else:
+        confidence_level = "low"
+
+    is_confident = confidence_level == "high"
 
     step_num = len(state.get("reasoning", [])) + 1
-    label = "✅ Confident" if is_confident else "⚠️ Low confidence"
+    if confidence_level == "high":
+        label = "✅ Confident"
+    elif confidence_level == "medium":
+        label = "⚠️ Medium confidence"
+    else:
+        label = "⚠️ Low confidence"
+
     return {
         "confidence": confidence,
+        "confidence_level": confidence_level,
         "is_confident": is_confident,
         "reasoning": [
             {
@@ -428,6 +443,7 @@ async def run_agent(query: str, top_k: int = 5, conversation_id: str = None) -> 
         "search_results": [],
         "answer": "",
         "confidence": 0.0,
+        "confidence_level": "low",
         "is_confident": False,
         "reasoning": [],
         "api_result": None,
@@ -453,9 +469,7 @@ if __name__ == "__main__":
             print(f"Q: {q}")
             result = await run_agent(q)
             print(f"Type: {result['query_type']}")
-            print(
-                f"Confidence: {result['confidence']:.2f} ({'✅' if result['is_confident'] else '⚠️'})"
-            )
+            print(f"Confidence: {result['confidence']:.2f} ({result['confidence_level']})")
             print(f"Tools: {result['tools_used']}")
             print(f"Steps: {len(result['reasoning'])}")
             print(f"Answer: {result['answer'][:200]}...")

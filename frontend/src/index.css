@@ -299,6 +299,11 @@ body {
   color: var(--green);
 }
 
+.confidence-tag.medium {
+  background: var(--blue-bg);
+  color: var(--blue);
+}
+
 .confidence-tag.low {
   background: var(--amber-bg);
   color: var(--amber);
@@ -523,6 +528,10 @@ body {
   color: var(--green);
 }
 
+.conf-value.medium {
+  color: var(--blue);
+}
+
 .conf-value.low {
   color: var(--amber);
 }
@@ -544,6 +553,10 @@ body {
   background: var(--green);
 }
 
+.conf-bar-fill.medium {
+  background: var(--blue);
+}
+
 .conf-bar-fill.low {
   background: var(--amber);
 }
@@ -552,6 +565,10 @@ body {
   font-size: 11px;
   color: var(--amber);
   margin-top: 6px;
+}
+
+.conf-warning.cautious {
+  color: var(--blue);
 }
 
 .source-list {

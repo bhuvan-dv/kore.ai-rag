@@ -47,6 +47,7 @@ export default function App() {
         sources: data.sources || [],
         reasoning: data.reasoning || [],
         confidence: data.confidence,
+        confidence_level: data.confidence_level || "low",
         is_confident: data.is_confident,
       };
 
@@ -61,6 +62,7 @@ export default function App() {
           sources: [],
           reasoning: [],
           confidence: 0,
+          confidence_level: "low",
           is_confident: false,
         },
       ]);
@@ -178,7 +180,7 @@ export default function App() {
                 <SourcePanel
                   sources={selectedMessage?.sources || []}
                   confidence={selectedMessage?.confidence}
-                  isConfident={selectedMessage?.is_confident}
+                  confidenceLevel={selectedMessage?.confidence_level}
                 />
               ) : (
                 <ReasoningPanel steps={selectedMessage?.reasoning || []} />

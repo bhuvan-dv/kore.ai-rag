@@ -122,11 +122,12 @@ async def query(request: QueryRequest):
         ]
 
         confidence = result.get("confidence", 0.0)
+        confidence_level = result.get("confidence_level", "low")
         is_confident = result.get("is_confident", False)
         answer = result.get("answer", "Unable to generate an answer. Please try again.")
 
-        # Guardrail: prepend low-confidence warning (PDF requirement 2.5)
-        if not is_confident:
+        # Guardrail: prepend warning only for low-confidence answers.
+        if confidence_level == "low":
             answer = (
                 "⚠️ I'm not confident in this answer. "
                 "Please verify with the source documents below.\n\n" + answer
@@ -137,6 +138,7 @@ async def query(request: QueryRequest):
             sources=sources,
             reasoning=reasoning,
             confidence=confidence,
+            confidence_level=confidence_level,
             is_confident=is_confident,
             query=request.query,
         )

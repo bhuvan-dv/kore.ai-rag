@@ -1,21 +1,32 @@
-export default function SourcePanel({ sources, confidence, isConfident }) {
+export default function SourcePanel({ sources, confidence, confidenceLevel = "low" }) {
+    const summary = {
+        high: "Confident",
+        medium: "Medium / cautious",
+        low: "Low confidence",
+    }[confidenceLevel];
+
     return (
         <div className="source-panel">
             {/* Confidence bar */}
             <div className="confidence-section">
                 <div className="conf-header">
                     <span className="conf-label">Confidence</span>
-                    <span className={`conf-value ${isConfident ? "high" : "low"}`}>
-                        {(confidence * 100).toFixed(0)}%
+                    <span className={`conf-value ${confidenceLevel}`}>
+                        {summary} · {(confidence * 100).toFixed(0)}%
                     </span>
                 </div>
                 <div className="conf-bar-track">
                     <div
-                        className={`conf-bar-fill ${isConfident ? "high" : "low"}`}
+                        className={`conf-bar-fill ${confidenceLevel}`}
                         style={{ width: `${confidence * 100}%` }}
                     />
                 </div>
-                {!isConfident && (
+                {confidenceLevel === "medium" && (
+                    <p className="conf-warning cautious">
+                        Medium confidence — answer looks plausible, but it is worth double-checking the sources.
+                    </p>
+                )}
+                {confidenceLevel === "low" && (
                     <p className="conf-warning">
                         Low confidence — verify with the sources below.
                     </p>

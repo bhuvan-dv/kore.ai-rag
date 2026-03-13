@@ -40,5 +40,6 @@ class QueryResponse(BaseModel):
     sources: list[SourceDocument] = []
     reasoning: list[ReasoningStep] = []
     confidence: float
+    confidence_level: str
     is_confident: bool
     query: str

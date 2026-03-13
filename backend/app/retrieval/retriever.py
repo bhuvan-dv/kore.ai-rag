@@ -13,7 +13,7 @@ Flow:
 from dataclasses import dataclass
 from sentence_transformers import SentenceTransformer
 from app.ingestion.embedder import get_or_create_collection
-from app.config import TOP_K, CONFIDENCE_THRESHOLD
+from app.config import TOP_K, MEDIUM_CONFIDENCE_THRESHOLD
 
 
 # ---------- Result type ----------
@@ -69,11 +69,11 @@ def retrieve(query: str, top_k: int = TOP_K) -> list[RetrievedChunk]:
 
 def retrieve_above_threshold(query: str, top_k: int = TOP_K) -> list[RetrievedChunk]:
     """
-    Like retrieve(), but filters out chunks below CONFIDENCE_THRESHOLD.
+    Like retrieve(), but filters out chunks below the medium-confidence threshold.
     Returns empty list when the query has no good matches in the knowledge base.
     """
     chunks = retrieve(query, top_k=top_k)
-    return [c for c in chunks if c.score >= CONFIDENCE_THRESHOLD]
+    return [c for c in chunks if c.score >= MEDIUM_CONFIDENCE_THRESHOLD]
 
 
 # ---------- Run directly ----------

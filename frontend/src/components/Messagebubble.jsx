@@ -1,5 +1,11 @@
 export default function MessageBubble({ message, isSelected, onSelect }) {
     const isUser = message.role === "user";
+    const confidenceLevel = message.confidence_level || (message.is_confident ? "high" : "low");
+    const confidenceLabel = {
+        high: "✓ Confident",
+        medium: "• Cautious",
+        low: "⚠ Low confidence",
+    }[confidenceLevel];
 
     return (
         <div
@@ -20,9 +26,8 @@ export default function MessageBubble({ message, isSelected, onSelect }) {
                 {/* Meta row for assistant messages */}
                 {!isUser && message.confidence !== undefined && (
                     <div className="bubble-meta">
-                        <span className={`confidence-tag ${message.is_confident ? "high" : "low"}`}>
-                            {message.is_confident ? "✓" : "⚠"}{" "}
-                            {(message.confidence * 100).toFixed(0)}% confidence
+                        <span className={`confidence-tag ${confidenceLevel}`}>
+                            {confidenceLabel} · {(message.confidence * 100).toFixed(0)}%
                         </span>
 
                         {message.sources?.length > 0 && (
