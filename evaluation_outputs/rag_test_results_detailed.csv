@@ -1,0 +1,1237 @@
+source_file_of_test,test_id,category,question,expected_confidence,expected_mode,answer,confidence,tools_used,correctness,grounding,calibration,routing,failure_type,quality_score,evaluator_note
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-01,"1. Ingestion, Chunking, and Retrieval Quality",What is a dialog task in Kore.ai?,High,Plain RAG,"According to [Source 1], a dialog task in Kore.ai is a container object that persists data for dialog execution and across all intents. It can be accessed with additional system and session variables, and keys from the context object are used in the dialog task and intent transition conditions.
+
+Additionally, [Source 2] and [Source 3] mention creating a dialog task using prebuilt action templates from Salesforce or Here integrations, but they do not provide further information on what constitutes a dialog task itself. 
+
+[Source 4] does not mention dialog tasks at all.
+
+Therefore, the answer to the question is that a dialog task in Kore.ai is a container object that persists data for dialog execution and across all intents, as described in [Source 1].",0.7052,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-02,"1. Ingestion, Chunking, and Retrieval Quality",How do I create a dialog task?,High,Plain RAG,"To create a dialog task, you can follow these steps:
+
+1. Select how you want to execute the dialog task.
+2. Click the ""Dialog Task"" option to create a new intent for the selected utterance.
+3. The ""Create Dialog"" panel is displayed. Enter the required details and click ""Proceed"" to add the new intent for the utterance.
+
+[Source: https://docs.kore.ai/xo/agentai/configuration/widget-theming-layout-customization/]
+
+Note that there are no additional steps mentioned in the provided context, so it appears that creating a dialog task involves simply selecting the option and entering required details.",0.7893,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-03,"1. Ingestion, Chunking, and Retrieval Quality",What channels does Kore.ai support?,Medium,Hybrid,"According to the provided context, Kore.ai supports the Unblu channel. [Source 1] states that there are multiple functionalities that can be achieved by integrating the Unblu channel with Kore.ai assistant.
+
+That's all I found in the context regarding supported channels. If you need more information about other channels or specific details about the Unblu channel, please refer to additional sources not mentioned here.",0.6976,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Misclassification,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-04,"1. Ingestion, Chunking, and Retrieval Quality",How do I configure widget theming and layout customization?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+To configure widget theming and layout customization, follow these steps:
+
+1. Sign in to Agent AI [Source 1].
+2. Go to Configuration > System Setup > Widget Theming.
+3. Click Layout Customization.
+4. Select a Channel (Chat, Voice, or Email).
+5. Select a language from the language dropdown list.
+6. Customize the layout as required: Menu Labels, Other Labels, Dialog Task Labels, Assist Message Type, Visibility Controls for Sent/Copied Messages, Widget Menu Layout, Search Result Layout, Assist Action Menu Layout, and Dialog Task Layout.
+
+[Source 1]
+
+Note that the provided context does not provide further information on how to customize each of these layout options.",0.6337,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-05,"1. Ingestion, Chunking, and Retrieval Quality",What is External Voice Transfer and how do I enable it?,Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, here is the answer:
+
+External Voice Transfer refers to the feature that allows you to transfer calls from Amazon Connect to an external voice system. To enable this feature, follow these steps:
+
+1. Navigate to Connector Creation in your Amazon Connect console and select the ""External voice system"" option.
+2. Enable the ""External voice systems"" option in your Amazon Connect instance by submitting a Service Quota Increase request to Amazon Connect.
+
+Note that the context does not provide detailed instructions on how to create an external voice transfer connector, but it mentions that this is required for the integration to work.
+
+Sources:
+
+[Source 1: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/]
+[Source 2: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/]
+[Source 3: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/]
+[Source 4: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/]",0.6068,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 5 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-06,"1. Ingestion, Chunking, and Retrieval Quality","Compare Agent AI, Search AI, and XO Platform in one answer.",Medium,Hybrid,"Based on the provided context, here's a comparison between Agent AI, Search AI, and the XO Platform:
+
+Agent AI and Search AI are two integrated components within the Kore.ai platform. They work together to provide agents with real-time assistance and guidance. 
+
+Agent AI offers AI-native agent assistance to boost productivity and customer satisfaction by providing real-time assistance, next best actions, built-in Knowledge AI, automated assistance, and real-time guidance.
+
+Search AI is a separate application that can be linked to Agent AI, allowing administrators to add segregated information sources for targeted agents' searches. This integration enables agents to view relevant snippets and articles from Search AI in the Agent AI widget.
+
+The XO Platform serves as the central point of interaction between users and Salesforce agents using the chat module. It facilitates communication and interaction between users and Salesforce agents, enabling seamless conversation handovers. The platform also supports various integration methods for agent transfer, including configuration options for linking Search AI with Agent AI.
+
+In summary, while both Agent AI and Search AI are part of the Kore.ai platform, they serve distinct purposes: Agent AI focuses on providing real-time assistance to agents, whereas Search AI is a separate application that can be integrated with Agent AI to enhance search functionality. The XO Platform acts as an intermediary between users and Salesforce agents, enabling seamless communication and interaction.
+
+Missing information includes specific details about the capabilities and limitations of each component, as well as their relative costs or pricing models.",0.6966,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-07,"1. Ingestion, Chunking, and Retrieval Quality",Show the main differences between BotKit SDK and Android Kore SDK.,Medium,Hybrid,"Based on the provided context, I found that the main differences between BotKit SDK and Android Kore SDK are not explicitly stated. However, I can provide some information about these SDKs based on the available sources.
+
+BotKit SDK is a part of the Kore.ai platform and provides a set of tools for building conversational interfaces. It requires Node.js to run on the same server where the SDK is installed [Source 1]. The BotKit SDK is used for developing bots that can interact with users through various channels, including messaging platforms and web applications.
+
+On the other hand, Android Kore SDK is also a part of the Kore.ai platform, but it seems to be specifically designed for Android development. It provides a set of libraries and tools for building conversational interfaces on Android devices [Source 2]. The Android Kore SDK allows developers to integrate Kore.ai chatbot functionality into their custom applications with minimal coding.
+
+Unfortunately, I couldn't find any direct comparison between BotKit SDK and Android Kore SDK in the provided context. However, it appears that both SDKs are designed for building conversational interfaces, but they might have different use cases and requirements based on the platform (Node.js vs. Android).
+
+If you need more information about these SDKs or their differences, I recommend checking out the official documentation and source code repositories for Kore.ai [Source 3].",0.6699,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-08,"1. Ingestion, Chunking, and Retrieval Quality","What does Kore.ai do, and is it the same as AWS?",Low,Plain RAG,"Based on the provided context, I found that Kore.ai is a platform that provides AI-powered chatbots and analytics capabilities. It integrates with various third-party applications, including Amazon Connect.
+
+However, I couldn't find any direct information on whether Kore.ai is the same as AWS or if it's an alternative to AWS. The context only mentions integrations between Kore.ai and AWS services like IAM, KMS, and Lambda, but it doesn't provide a clear comparison between the two.
+
+The original question seems to be missing some context to determine what exactly Kore.ai does in relation to AWS.",0.6805,"vector_search, llm_generation",Unsupported,Strong,Overconfident,Acceptable,Confidence Miscalibration,5,"Expected a unsupported outcome; got unsupported with strong grounding, overconfident calibration, acceptable routing, 7 sources; primary issue: confidence miscalibration."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-09,"1. Ingestion, Chunking, and Retrieval Quality",How do I configure Amazon Connect with Agent AI Voice via AWS third-party applications?,High,Plain RAG,"To configure Amazon Connect with Agent AI Voice via AWS third-party applications, follow these steps:
+
+1. Create an instance of TheAgentAssist third-party application in Amazon Connect using AWS Third-party Applications.
+2. Go to the CCP solution hosted at https://agentassist.kore.ai/integrations/amzn/ccp-voice/ and load your Amazon Connect instance and Agent AI in the same page.
+3. First-time users are redirected to the configure page, where they must paste the copied API Gateway URL.
+4. Once you paste the above URL and click the SAVE DETAILS button, it redirects you to the CCP screen and a dummy Agent AI widget loads up.
+5. Initially, it asks you to log in with your Amazon Connect credentials, and only after successful authentication, the Amazon Connect CCP is visible.
+
+[Source 1]
+
+Note: The provided context does not explicitly outline a step-by-step guide for configuring Amazon Connect with Agent AI Voice via AWS third-party applications. However, based on the available information, these steps can be followed to achieve this configuration.",0.8554,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,RET-10,"1. Ingestion, Chunking, and Retrieval Quality","Which document did you use to answer this, and why was it more relevant than the others?",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I can help with your question. However, I need a bit more information from you.
+
+You mentioned that the context is about Kore.ai knowledge assistant and its NLP analysis capabilities. You also provided several sources related to Kore.ai.
+
+Could you please provide more details or clarify what specific question you have regarding Kore.ai's NLP analysis capabilities? For example, are you trying to understand how Kore.ai identifies intents, how it handles ambiguous intents, or something else?
+
+If you provide more context or information about your question, I'll do my best to help.",0.4216,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-01,2. Agentic Orchestration and Query Decomposition,"Compare dialog tasks, alert tasks, and FAQ handling, and tell me when each should be used.",Medium,Agentic RAG,"Based on the provided context, here's a comparison of dialog tasks, alert tasks, and FAQ handling:
+
+Dialog Tasks:
+- Should be used for executing dialog tasks or FAQs.
+- DialogGPT triggers the resolved intent with the appropriate fulfillment action.
+- Handles multi-intent scenarios by executing tasks sequentially or in parallel, depending on dependencies.
+
+Alert Tasks:
+- Should be used for emitting details of alerts when executed by the user.
+- The task name is emitted as a contextual tag for all alert tasks when the task execution is initiated.
+- Additional tags can be added at the time of task creation under MoreOptions or from GeneralSettings.
+
+FAQ Handling:
+- Should be used for providing context-driven FAQs that are available only when certain other intents (tasks or FAQs) are in the context.
+- Certain intents (tasks or FAQs) can be made available only when other intents are in the context, such as FAQ intentWhat are the meal options available?should be available only whenBook a flighttask is in the context.
+- Context of the current intent can be used to identify subsequent intents from user utterances.
+
+It appears that there isn't enough information provided to determine when each should be used. More context or information about the specific use case would be necessary to make an accurate comparison and recommendation.",0.7338,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-02,2. Agentic Orchestration and Query Decomposition,"I’m building a customer support assistant. Should I use Search AI, Agent AI, or XO Platform, and why?",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that there is no direct answer to your question about which platform to use for your customer support assistant.
+
+The context provides information about the Kore.ai platforms, including Search AI, Agent AI, and XO Platform, but does not explicitly state which one is best suited for a customer support assistant.
+
+However, I found some relevant information in Sources 2 and 5. According to Source 2, Search AI is a service that provides search functionality, while Source 5 mentions the ""Search"" menu option as part of the standard menu names provided by Kore.ai.
+
+It seems that Search AI might be related to search functionality, but it's not clear if it's specifically designed for customer support. Similarly, Agent AI is mentioned in Source 5 as a feature configuration, but its purpose is not explicitly stated.
+
+The XO Platform (Source 1) appears to be a more general-purpose platform that allows customization and integration with various services, including Amazon Connect and Salesforce Service Cloud Voice.
+
+Without further information about the specific requirements of your customer support assistant, it's difficult to recommend one platform over another.",0.4637,"vector_search, llm_generation",Partial,Medium,Underconfident,Correct,False Negative,4,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-03,2. Agentic Orchestration and Query Decomposition,Walk me through the reasoning steps you took to answer this question.,High,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+To answer the question, we need to analyze the context object provided. The user query is ""How about Orlando?"" and its rephrased version is ""How about the weather in Orlando?""
+
+The context object contains information about the original user query and its rephrased version.
+
+However, without more information about the specific task or intent behind the question, it's difficult to provide a detailed explanation of the reasoning steps taken to answer the question.
+
+The provided sources mention the importance of effective context management in AI Agent interactions, but they do not specifically address how to reason through user queries like ""How about Orlando?""
+
+Therefore, I found that the information is missing on how to apply reasoning steps to answer this specific question.",0.3803,"vector_search, llm_generation",Partial,Weak,Underconfident,Correct,Weak Retrieval,2,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, correct routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-04,2. Agentic Orchestration and Query Decomposition,"Show me a query that uses only vector search, one that uses decomposition, and one that uses an extra tool.",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not contain specific examples of queries using different search features. The context only describes general features such as Search, Sort, and Filter.
+
+However, I found some information on how to use these features:
+
+* To use vector search, you would need to provide a query that uses a vector-based search query.
+* For decomposition, it is not clear what specific feature or tool is being referred to. The context mentions ""index pipeline"" and ""query pipeline"", but does not provide further details.
+* There is no information on an ""extra tool"" in the provided context.
+
+Without more specific examples or information, I was unable to find a query that uses only vector search, decomposition, and an extra tool as requested.",0.3854,"vector_search, llm_generation",Partial,Medium,Underconfident,Correct,False Negative,4,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, correct routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-05,2. Agentic Orchestration and Query Decomposition,"What are the API rate limits, and how do they compare with regular documentation guidance?",High,Hybrid,"Based on the provided context, I found that the API rate limits for Kore.ai are as follows:
+
+* For Case Management, requests are monitored against a sixty-second limit. As long as the limit is not exceeded, the account/application can continue making requests.
+* For Contact Center AI and Automation, requests are also monitored against a sixty-second limit.
+
+The context does not provide specific numerical values for the rate limits, such as the number of requests per minute or second. It only mentions that requests are monitored against a sixty-second limit.
+
+In contrast to regular documentation guidance, which recommends spreading out calls evenly to avoid traffic spikes and using filters to limit data response size, the API rate limits in Kore.ai are enforced through a sixty-second limit. This means that if the limit is exceeded, subsequent requests will fail with an error message.
+
+The context does not provide information on how these API rate limits compare to regular documentation guidance or what specific numerical values they may have.",0.6608,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-06,2. Agentic Orchestration and Query Decomposition,"Break this into sub-questions before answering: How do I set up a bot, choose channels, and secure API access?",Medium,Agentic RAG,"To answer your question, I'll break it down into sub-questions:
+
+1. **How do I set up a bot?**
+
+According to [Source 2: https://docs.kore.ai/xo/apis/automation/api-introduction/], the process involves creating an App and selecting the API scopes.
+
+   - Create an App by clicking the ""New API Scope"" button.
+   - Select the ""Create App"" option from the App drop-down menu.
+   - Enter an App Name, which will generate a Client ID and Client Secret automatically.
+
+2. **How do I choose channels for my bot?**
+
+According to [Source 1: structured_db/supported_channels], you can choose from the following channels:
+
+   ```
+{
+  ""channels"": [
+    {
+      ""name"": ""Web/Mobile SDK"",
+      ""category"": ""Digital""
+    },
+    {
+      ""name"": ""Slack"",
+      ""category"": ""Enterprise""
+    },
+    {
+      ""name"": ""Microsoft Teams"",
+      ""category"": ""Enterprise""
+    },
+    {
+      ""name"": ""WhatsApp"",
+      ""category"": ""Messaging""
+    },
+    {
+      ""name"": ""Facebook Messenger"",
+      ""category"": ""Social""
+    },
+    {
+      ""name"": ""Twilio SMS/Voice"",
+      ""category"": ""Voice""
+    }
+  ]
+}
+```
+
+3. **How do I secure API access?**
+
+According to [Source 4: https://docs.kore.ai/xo/administration/security-and-control/api-scopes-new-admin-console/], you need to create an App and select the API scopes.
+
+   - Create an App by clicking the ""New API Scope"" button.
+   - Select the ""Create App"" option from the App drop-down menu.
+   - Enter an App Name, which will generate a Client ID and Client Secret automatically.
+
+Additionally, [Source 2: https://docs.kore.ai/xo/apis/automation/api-introduction/] mentions that you need to provide symmetric encryption key used by the Platform to encrypt Public API request and response payloads.",0.8089,"vector_search, structured_lookup, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-07,2. Agentic Orchestration and Query Decomposition,"For a platform-status question, why did you choose the API tool instead of only vector search?",High,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that there is no direct information on why to choose the API tool over vector search for a platform-status question in the provided context. The context provides information on various Kore.ai features and tools, but it does not specifically address this question.
+
+The context mentions that the API tool allows developers to monitor all scripts and API services across the AI Agent's tasks from a single window (Source 3: https://docs.kore.ai/xo/analytics/automation/task-execution-logs/). However, it does not provide information on why this would be relevant for a platform-status question.
+
+Without additional context or information, I cannot provide a definitive answer to this question.",0.5553,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Tool Failure,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 8 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,AGT-08,2. Agentic Orchestration and Query Decomposition,"If the API tool fails, how should the system recover and what should the user see?",Low,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that if the API tool fails, the system can recover by triggering an error event (ON_ERRORevent) with relevant error details. However, there is no explicit information on what the user should see in this case.
+
+The context mentions that clients can subscribe to this event and define a callback function to handle the error as per their application's requirements [Source 1]. This suggests that the system will notify the user of the error through a custom error-handling logic implemented by the client.
+
+Additionally, there is no information on how the system should recover from an API tool failure in terms of displaying a specific message or taking a particular action to the user.",0.585,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, wrong routing, 8 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-01,"3. Source Selection, Citation Grounding, and Verification UX",Answer the question and show the source citations linking back to the original documents.,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I was unable to find a direct answer to the question. The context only provides information about NLP Analysis, SearchAI APIs, and Knowledge Graph, but does not explicitly address the question.
+
+The context mentions that if an intent has been answered from a document, it will provide details such as the answer, document source, similarity score, and option to add query to the Knowledge Graph as an FAQ. However, this information is not directly applicable to the provided question.
+
+Therefore, I was unable to find a suitable answer to the question based on the provided context.",0.4655,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-02,"3. Source Selection, Citation Grounding, and Verification UX",Open the source you used for this answer. Is it a docs.kore.ai page or a GitHub README?,High,Plain RAG,"The source I used is a GitHub README file, specifically [Source 2: https://github.com/Koredotcom/BotKit].",0.6694,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-03,"3. Source Selection, Citation Grounding, and Verification UX",Which exact paragraph supports the statement about External Voice Transfer prerequisites?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the question about which exact paragraph supports the statement about External Voice Transfer prerequisites is missing information.
+
+The context mentions that there are setup instructions for enabling external voice transfer in Amazon Connect, but it does not specify which paragraphs or sections of those instructions support the prerequisites for External Voice Transfer.",0.5905,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-04,"3. Source Selection, Citation Grounding, and Verification UX","If two sources disagree or emphasize different details, which one did you rely on and why?",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context does not provide a clear answer to this question. The provided rules and guidelines for Kore.ai automation do not explicitly address how to handle conflicting information from multiple sources.
+
+The context provides information on when to use deterministic dialog tasks, dynamic routing, event handling, and fetching debug logs, but it does not specify how to resolve conflicts between these sources.
+
+Therefore, I cannot provide a definitive answer to this question based solely on the provided context.",0.3471,"vector_search, llm_generation",Partial,Weak,Underconfident,Acceptable,Weak Retrieval,1,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-05,"3. Source Selection, Citation Grounding, and Verification UX","Give me the answer without citations, then prove afterward that every claim is grounded.",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I don't have enough information to provide an accurate answer. The provided context only includes documentation for Kore.ai automation APIs, but it does not specify which API or endpoint is being queried. Without more information about the specific API or request being made, I cannot provide a meaningful response.",0.4485,"vector_search, llm_generation",Partial,None,Underconfident,Acceptable,Weak Retrieval,0,"Expected a supported outcome; got partial with none grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-06,"3. Source Selection, Citation Grounding, and Verification UX",Show all retrieved sources even if they were not used equally in the final answer.,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not fully answer the question. The context provides information on how to access detailed insights for each query and the structure of an answer record, but it does not provide any information on how to retrieve sources that were not used equally in the final answer.
+
+The context mentions that the ""chunk_result"" section of an answer record contains a ""generative"" field with a list of documents, but it does not specify how to access or display these sources. Additionally, the context does not mention any specific API endpoint or method for retrieving this information.
+
+Without further information or clarification on what is being asked, it is difficult to provide a more detailed answer.",0.3919,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-07,"3. Source Selection, Citation Grounding, and Verification UX",Why was Source 1 ranked above Source 3 for this query?,Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no information about why Source 1 was ranked above Source 3 for a specific query. The context only provides information about the koreUtil.getAmbiguousIntents function and its usage, as well as some general information about indexes, search templates, NLP analysis, and data tables.
+
+The ranking of sources is not explicitly mentioned in any of the provided sources. Therefore, I cannot provide an answer to this question based on the given context.
+
+Information missing: The reason why Source 1 was ranked above Source 3 for a specific query.",0.4554,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 6 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CIT-08,"3. Source Selection, Citation Grounding, and Verification UX",Can I inspect the full retrieved text instead of a shortened snippet?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not contain information on how to inspect the full retrieved text. The context appears to be related to Kore.ai's automation API for fetching and debugging logs.
+
+The context shows examples of log data in JSON format, but it does not provide any information on how to modify or extend this data to retrieve the full text instead of a shortened snippet.
+
+To answer the question, I would need more information from the Kore.ai documentation or other reliable sources.",0.3875,"vector_search, llm_generation",Partial,Weak,Underconfident,Wrong,Misclassification,0,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-01,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",What is Kore.ai’s healthcare agency pricing model?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, I couldn't find any information about Kore.ai's healthcare agency pricing model in the provided context. The context only discusses Data as Service, Analytics, Quality AI API List, Configuring the Intercom Agent, and Billing sections of the Kore.ai XO Platform.
+
+The relevant section for billing is [Source 5: https://docs.kore.ai/xo/administration/billing/], but it doesn't mention a pricing model specifically for healthcare agencies. It only discusses billing sessions and plan details.
+
+To answer the question accurately, I would need more information or context about Kore.ai's healthcare agency pricing model.",0.4712,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Correct,None,9,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-02,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",Is Kore.ai the same as AWS?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+No, Kore.ai is not the same as AWS.
+
+According to the context provided, Kore.ai is a platform that integrates with various third-party applications, including AWS. The specific integration mentioned in the context is the BYOK (Bring Your Own Key) integration between Kore.ai and an AWS tenant, which involves configuring a trust relationship between Kore.ai and the AWS tenant.
+
+[Source 1: https://docs.kore.ai/xo/administration/security-and-control/byok-aws-integration/]
+
+The context does not provide information on whether Kore.ai is owned or developed by AWS. However, it does mention that the Kore.ai support team will configure the integration (trust relationship between Kore and the AWS tenant) on their end.
+
+[Source 3: https://docs.kore.ai/xo/administration/security-and-control/byok-aws-integration/]
+
+In summary, while Kore.ai integrates with AWS, they are not the same entity.",0.6432,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Correct,None,10,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-03,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",What is the current platform version?,High,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not mention the current platform version.
+
+The most recent information available in the context is from v10.16.1[Minor] on 12-July-2025: Master branch, but it's a minor release and there is no indication that this is the current version of the platform.",0.5164,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Tool Failure,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-04,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",What are the API rate limits?,High,Tool,"According to the provided context, the API rate limits are enforced by Quality AI, Contact Center AI, and Case Management, with the same rules applying to all three.
+
+Requests are monitored against a sixty-second limit. As long as the limit is not exceeded, the account/application can continue making requests.
+
+[Source 1: https://docs.kore.ai/xo/apis/automation/rate-limit-quality-ai/]
+
+No additional information about custom or higher rolling rate limits is provided in the context.",0.6851,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-05,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",Who is the CEO of Kore.ai?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context does not provide information on who the CEO of Kore.ai is. The provided sources are related to setting up and configuring the Kore Agent AI package, but do not mention any information about the company's leadership or executives.
+
+Therefore, I cannot answer the question with certainty, as the required information is missing from the context.",0.5579,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Correct,None,10,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-06,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",Give me the exact AWS quota approval workflow for External Voice Transfer.,Medium,Plain RAG,"I found the relevant information in [Source 3: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/].
+
+To enable External Voice Transfer, you must submit a Service Quota Increase request to Amazon Connect. This feature is enabled only after Amazon Connect approves your request.
+
+Here are the steps:
+
+1. Go to the Amazon Connect console and navigate to the ""Service Quotas"" page.
+2. Search for ""External voice systems"" in the search bar.
+3. Click on the ""Request Service Quota Increase"" button next to the ""External voice systems"" service quota.
+4. Fill out the request form with the required information, such as the reason for the increase and the expected number of users.
+5. Submit the request.
+
+Once Amazon Connect approves your request, the ""External voice systems"" option becomes visible in your console.
+
+Note that [Source 1: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/] does not provide a detailed workflow for AWS quota approval.",0.6511,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-07,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention","If your confidence is 0.64, what should the user see? If it is 0.66, what changes?",Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context from Kore.ai documentation, I found that there is no specific information about the expected output or changes for different confidence levels (0.64 and 0.66).
+
+The context only mentions that this call may be monitored or recorded for quality and training purposes [Source 1-3], but it does not provide any details on what the user should see or expect for specific confidence levels.
+
+Therefore, I cannot provide a definitive answer to the question based on the provided context.",0.2353,"vector_search, llm_generation",Unsupported,None,Well-calibrated,Acceptable,None,4,"Expected a unsupported outcome; got unsupported with none grounding, well-calibrated calibration, acceptable routing, 3 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,CFG-08,"4. Confidence Scoring, Low-Confidence Fallback, and Hallucination Prevention",Show me one query you intentionally expect to fail safely.,Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+One query that I intentionally expect to fail safely is:
+
+`SELECT * FROM table WHERE 1 = 0`
+
+This query will always return no results because the condition `1 = 0` is never true. This is a safe query because it doesn't rely on any specific data in the table, and it won't cause any errors or exceptions.
+
+I couldn't find any information about Kore.ai's SQL syntax or query limitations that would prevent this type of query from working safely.",0.3736,"vector_search, llm_generation",Unsupported,None,Well-calibrated,Wrong,Misclassification,2,"Expected a unsupported outcome; got unsupported with none grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,HYB-01,5. Multi-Source Reasoning and Tool Invocation,"Compare dialog tasks and alert tasks, then list which channels are supported for deployment.",Medium,Hybrid,"Based on the provided context, I found that:
+
+* Dialog tasks and alert tasks are two types of tasks in Kore.ai.
+* Dialog tasks can be executed by DialogGPT (Source 3) and can handle multi-intent scenarios (Source 3).
+* Alert tasks emit contextual tags when executed by a user (Source 6).
+* The Platform supports emitting details of alert tasks, including task names as contextual tags (Source 7).
+
+However, I couldn't find information on the specific channels supported for deployment of dialog tasks and alert tasks.
+
+The context mentions that Kore.ai supports various channels, including:
+
+* Web/Mobile SDK
+* Slack
+* Microsoft Teams
+* WhatsApp
+* Facebook Messenger
+* Twilio SMS/Voice
+
+(Source 1)
+
+But it doesn't specify which channels are supported for deployment of dialog tasks and alert tasks specifically.",0.8541,"vector_search, structured_lookup, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,HYB-02,5. Multi-Source Reasoning and Tool Invocation,"What channels are supported, and which SDK README would I check for a mobile implementation?",Medium,Hybrid,"Based on the provided context, the following channels are supported:
+
+* Web/Mobile SDK
+* Slack
+* Microsoft Teams
+* WhatsApp
+* Facebook Messenger
+* Twilio SMS/Voice
+
+For a mobile implementation, you can refer to the README of the Web/Mobile SDK channel.",0.7995,"vector_search, structured_lookup, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,HYB-03,5. Multi-Source Reasoning and Tool Invocation,"For API rate limits, show whether your answer came from vector search, the mock API, or both.",High,Tool,"Based on the provided context, I was able to find information about API rate limits for Kore.ai. The context does not provide a clear indication of how the answer was generated, as it only mentions ""vector search"" and ""mock API"" without further explanation.
+
+However, according to the context, the best practices for API rate limits include:
+
+* Spreading out calls evenly to avoid traffic spikes
+* Using filters to limit the data response size and avoid overlapping requests
+* When the limit is reached, stopping API calls and waiting for the specific time period to pass or implementing a backoff strategy
+
+The error message for exceeding the per-minute rate limit is also provided: ""You've exceeded the per-minute rate limit. Please wait for sometime before retrying.""
+
+Since the context does not provide information on how these answers were generated, I cannot confirm whether they came from vector search, the mock API, or both.
+
+Sources:
+[Source 1: https://docs.kore.ai/xo/apis/automation/rate-limit-quality-ai/]
+[Source 2: https://docs.kore.ai/xo/apis/automation/rate-limit-case-management/]
+[Source 3: https://docs.kore.ai/xo/apis/automation/rate-limit-quality-ai/]",0.6788,"api_lookup, vector_search, llm_generation",Correct,Medium,Well-calibrated,Wrong,Tool Failure,6,"Expected a supported outcome; got correct with medium grounding, well-calibrated calibration, wrong routing, 3 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,HYB-04,5. Multi-Source Reasoning and Tool Invocation,"If a complex query spans three subtopics, how many searches did you run and how did you merge results?",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the question about running multiple searches to span three subtopics is not fully answered.
+
+The context provides information on search queries, filtering options, and advanced search features, but it does not explicitly address how to handle complex queries with multiple subtopics or merge results from multiple searches.
+
+Specifically, Sources 1-4 provide information on search functionality, filtering options, and advanced search features, but none of them discuss how to handle complex queries or merge results from multiple searches.
+
+Therefore, I cannot provide a definitive answer to the question based solely on the provided context.",0.5268,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,HYB-05,5. Multi-Source Reasoning and Tool Invocation,"Answer using both docs and structured data: Which channels are supported, and how does that connect to enterprise use cases?",Medium,Hybrid,"According to the provided context, the following channels are supported:
+
+- Web/Mobile SDK (Digital)
+- Slack (Enterprise)
+- Microsoft Teams (Enterprise)
+- WhatsApp (Messaging)
+- Facebook Messenger (Social)
+- Twilio SMS/Voice (Voice)
+
+These channels can be used in enterprise use cases, as mentioned in [Source 2: https://docs.kore.ai/xo/automation/intelligence/context-management/]. The XO Platform allows you to capture and reuse contextual data for a large variety of scenarios, enabling more complex use cases and redefining the enterprise customer experience.
+
+However, I found that there is no direct information on how these channels connect to specific enterprise use cases. More context or information would be needed to provide a detailed answer on this topic.",0.7973,"vector_search, structured_lookup, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,HYB-06,5. Multi-Source Reasoning and Tool Invocation,"When should the system choose the API tool, the structured lookup tool, or plain vector search?",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not fully answer the question of when to choose between an API tool, a structured lookup tool, and plain vector search.
+
+The context provides information on tools in Kore.ai, including their components (Name, Description, Parameters, Action Nodes, and Transitions) and use cases. However, it does not explicitly discuss the differences between API tools, structured lookup tools, and plain vector search.
+
+To answer this question accurately, additional context or information about these specific tool types would be necessary.",0.5683,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,UX-01,"6. UX, Reasoning Trace Visibility, and Demo Readiness","Ask a question, then show me the answer, the citations, and the reasoning trace without leaving the page.",High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+To view the answer, citations, and reasoning trace without leaving the page, you can follow these steps:
+
+1. Type a question in the ""Ask a question"" search bar.
+2. Press Enter on the keyboard to trigger the AI Agent's response.
+3. The AI Agent will generate an answer based on your query.
+
+Unfortunately, I couldn't find any information on how to display the citations and reasoning trace directly within the page without leaving it. 
+
+Sources:
+[Source 1: https://docs.kore.ai/xo/app-settings/integrations/external-nlu/test-and-debug/]
+[Source 2: https://docs.kore.ai/xo/app-settings/integrations/actions/azure-open-ai/using-the-azure-openai-action-templates/]
+[Source 3: https://docs.kore.ai/xo/apis/searchai/answer-generation/]
+[Source 4: https://docs.kore.ai/xo/apis/searchai/advance-search/]",0.4516,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,UX-02,"6. UX, Reasoning Trace Visibility, and Demo Readiness",Which tools were used and why?,High,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that there is no specific information about which tools were used and why. The context provides general information about LLM providers, key components of a tool, use cases for tools, and configuration options for out-of-box integrations.
+
+The only relevant section related to tools is [Source 4: https://docs.kore.ai/xo/automation/agent-node/working-with-agent-node/], which mentions that ""Tools allow the Agent Node to interact with external services, fetching or posting data as needed."" However, it does not provide specific information about which tools were used and why.
+
+Therefore, I was unable to find a definitive answer to the question.",0.431,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,UX-03,"6. UX, Reasoning Trace Visibility, and Demo Readiness",Can I inspect the full source content that supported the answer?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not fully answer the question of how to inspect the full source content that supported the answer.
+
+The context mentions ""Retrieved Chunks"" and ""Response"" sections in the Kore.ai analytics interface, but it does not provide information on how to access or view the full source content that was used to generate the answer.",0.6017,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,UX-04,"6. UX, Reasoning Trace Visibility, and Demo Readiness",What should I infer from a medium-confidence answer versus a low-confidence one?,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that the confidence level of an answer is related to the tone emotion detected in user input.
+
+From the context, we can see that the ""level"" field has values ranging from +3 (definitely expressed) to -3 (definitely suppressed). The tone emotions are also listed with corresponding names, such as ""angry"", ""disgust"", and so on.
+
+However, I couldn't find any explicit information on what to infer from a medium-confidence answer versus a low-confidence one. It seems that the confidence level is not explicitly defined in the context provided.
+
+Therefore, I found missing information regarding the interpretation of confidence levels in Kore.ai's tone emotion detection system.",0.5824,"vector_search, llm_generation",Partial,Weak,Underconfident,Acceptable,Weak Retrieval,1,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,UX-05,"6. UX, Reasoning Trace Visibility, and Demo Readiness","If the backend is unavailable, what does the user see?",Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, if the backend is unavailable, the user sees an ""Error"" status in the conversation. [Source 1]
+
+The exact error message may vary depending on the specific error code returned by the API or the integration. However, the context does not provide information on what the user would see if a specific error occurs.
+
+Additionally, the context mentions that actions can be authorized based on the authorization profiles supported by the third-party integrations, but it does not provide information on how this relates to an unavailable backend. [Source 7]
+
+Therefore, without more information, it is unclear what the user would see if the backend is unavailable.",0.5336,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,UX-06,"6. UX, Reasoning Trace Visibility, and Demo Readiness",Can I tell whether a source came from GitHub or docs.kore.ai?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+To determine if a source came from GitHub or docs.kore.ai, you can look at the URL.
+
+If the URL starts with ""https://github.com/"", it is likely from GitHub.
+If the URL starts with ""https://docs.kore.ai/"", it is likely from docs.kore.ai.
+
+I found that Sources 1 and 3 are from docs.kore.ai, while Sources 2 and 4 are from GitHub.",0.5089,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Misclassification,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-01,"7. System Robustness, Failure Modes, and Adversarial Checks","What happens if I ask an empty question, a one-word question, and a 2,000-character question?",Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context from Kore.ai documentation [Source 1], it appears that the response to an empty question, a one-word question, and a 2,000-character question is not explicitly stated.
+
+However, I found that in the context of speech recognition, an empty question or a one-word question may result in a ""no"" response for the `display` field [Source 1]. Additionally, a long question like a 2,000-character question may be truncated or have its confidence score affected due to the limitations of the speech recognition engine.
+
+To provide more specific information on the impact of these types of questions, I would need additional context or clarification from the Kore.ai documentation.",0.2782,"vector_search, llm_generation",Unsupported,Weak,Well-calibrated,Wrong,Misclassification,4,"Expected a unsupported outcome; got unsupported with weak grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-02,"7. System Robustness, Failure Modes, and Adversarial Checks",What happens if ingestion has not been run and the vector store is empty?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, I couldn't find any information in the provided context about what happens when ingestion hasn't been run and the vector store is empty. The context only discusses APIs for accessing data, data definitions, data manipulation, security settings, using data tables, and guidelines for data tables.
+
+Specifically, there is no mention of what happens to the vector store or how it would be affected by not running ingestion.",0.527,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-03,"7. System Robustness, Failure Modes, and Adversarial Checks",What happens if the API tool returns no match or fails?,Low,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+According to Source 4, if the botId is incorrect, you get a response with a code of 400 and a message indicating that linked bot details could not be found. This suggests that the API tool returns an error response when it cannot find a matching bot.
+
+Additionally, according to Sources 2 and 3, when dealing with invalid inputs or tool failures, the recommended approach is to provide clear error messages, guide users to correct input format, include examples for clarity, display user-friendly error notifications, offer alternative solutions or retry options, and preserve all previously collected valid data.",0.6359,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, wrong routing, 8 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-04,"7. System Robustness, Failure Modes, and Adversarial Checks","Ask the same question three different ways: 'dialog task', 'dialog flow', 'create intent dialog'.",Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context provides information on Kore.ai's analytics and automation features, but it does not provide a clear answer to the user's question about ""dialog task"", ""dialog flow"", or ""create intent dialog"".
+
+The context mentions Dialog Task and Dialog Flow as related concepts in Kore.ai, but it does not explicitly define what these terms mean.
+
+[Source 1: https://docs.kore.ai/xo/analytics/automation/performance-dashboard/]
+
+[Source 2: https://docs.kore.ai/xo/automation/dynamic-routing/]
+
+[Source 3: https://docs.kore.ai/xo/agentai/configuration/widget-settings/]
+
+The context also mentions creating intents, but it does not provide information on how to create a dialog task or dialog flow.
+
+I was unable to find any additional information that would answer the user's question.",0.6139,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-05,"7. System Robustness, Failure Modes, and Adversarial Checks",Ask two unrelated questions back to back. Does the second answer leak context from the first?,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I'll do my best to provide answers based only on the provided context.
+
+Question 1: What is the tone emotion level of a user who expressed a positive sentiment?
+
+Answer: The document does not provide an answer to this question. However, it mentions that there are three levels of tone emotions ranging from -3 to +3, but it does not specify what these levels mean for a positive sentiment.
+
+Question 2: What is the meaning of the ""userNoInputCounter"" in the customerData section of the debug logs?
+
+Answer: The document does not provide an answer to this question. However, it mentions that the customerData section contains information about the user's input counter and retry count, but it does not explain what these values mean.
+
+As for your question, I found that the second answer does leak some context from the first. Both answers are related to the debug logs, which suggests that there may be a connection between the two questions. However, without more information, it is difficult to determine if the second answer provides additional context or simply repeats information from the first answer.",0.3388,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 6 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-06,"7. System Robustness, Failure Modes, and Adversarial Checks",Ask for a fact not in docs but phrased as if it should exist: 'What is the SLA penalty clause for Kore.ai Enterprise?',Low,Plain RAG,"I found that the context provided does not contain information about the SLA penalty clause for Kore.ai Enterprise. The documentation available on Kore.ai's platform does not mention this specific term or concept.
+
+The context includes information about various features and integrations of the Kore.ai Platform, such as BotKit, Analytics, Intercom Agent integration, Agent AI, Data as Service, and Quality AI API List. However, none of these sections discuss SLA penalty clauses for Kore.ai Enterprise.
+
+If you're looking for specific details on this topic, I recommend checking with Kore.ai's support team or consulting their official documentation for more information.",0.7145,"vector_search, llm_generation",Incorrect,Medium,Overconfident,Acceptable,Confidence Miscalibration,0,"Expected a unsupported outcome; got incorrect with medium grounding, overconfident calibration, acceptable routing, 8 sources; primary issue: confidence miscalibration."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-07,"7. System Robustness, Failure Modes, and Adversarial Checks",Can you show five example false positives and false negatives from your system?,Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found information about False Positives (FP) and False Negatives (FN), but not specific examples of these instances.
+
+False Positive refers to an instance where the AI Agent incorrectly identifies the intent of an utterance. However, the context does not provide concrete examples of False Positives.
+
+False Negative refers to an instance where the AI Agent incorrectly identifies that an utterance did not match any of the defined intents. Again, specific examples are not provided in the context.
+
+However, I can suggest some possible scenarios for False Positives and False Negatives based on the context:
+
+1. False Positive: The user says ""I need help with my account"" (positive intent), but the AI Agent incorrectly identifies it as a ""Close Account"" intent.
+2. False Negative: The user says ""What's the weather today?"" (defined intent ""get_weather""), but the AI Agent incorrectly identifies it as an Unidentified intent.
+
+Without more information or specific examples, I couldn't provide additional instances of False Positives and False Negatives.",0.5281,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ROB-08,"7. System Robustness, Failure Modes, and Adversarial Checks","If two retrieved chunks are duplicates or near-duplicates, how does that affect the answer and confidence?",Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no specific information about how duplicate or near-duplicate chunks affect the answer and confidence in Kore.ai's search results.
+
+The context provides information on chunk-related APIs, such as Get Chunks By Condition (Source 3), but it does not explicitly discuss the impact of duplicate or near-duplicate chunks on the answer and confidence.
+
+Therefore, I was unable to provide a definitive answer to this question based solely on the provided context.",0.5471,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-01,"8. Architecture, Scalability, and Design-Defense Questions",Why did you choose this embedding model and vector database instead of alternatives?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not explicitly state why a specific embedding model and vector database were chosen over alternatives. The context only mentions that DialogGPT uses embeddings to compare user input with stored embeddings to find the most semantically similar chunks, but it does not provide information on the specific reasons for choosing this approach.
+
+The context also mentions that BGEM3 supports 100+ languages for semantic search and is suitable for applications requiring contextual understanding across languages, lower latency requirements, and cost optimization. However, it does not explicitly state why these alternatives were chosen over other options.
+
+Without additional information or context, it is difficult to provide a definitive answer to this question.",0.4225,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-02,"8. Architecture, Scalability, and Design-Defense Questions","Your PDF target says ~1,000 chunks. What did your pipeline actually produce, and why?",Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no information about what the actual output of the pipeline was or how it relates to the number of chunks produced.
+
+The context provides information about the flow management and fulfillment process in Kore.ai, including input processing, post-processing, and the use of pre-processor and post-processor scripts. It also mentions the HubSpot action templates and search AI APIs, but there is no direct connection between these topics and the question about the pipeline's output.
+
+The only relevant information related to chunk production is from Source 6: [Source 6], which describes the `chunk_result` field in the SearchAI API response. However, this does not provide any information about what the pipeline actually produced or how it relates to the number of chunks (~1,000).
+
+Therefore, I was unable to answer the question based on the provided context, and more information is needed to determine what the pipeline actually produced and why.",0.525,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-03,"8. Architecture, Scalability, and Design-Defense Questions",How would you scale this design to 20M+ records?,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no specific guidance on scaling a design to 20M+ records. The recommended limits for optimal performance are:
+
+* Row Limit: Restrict the number of rows to a maximum of 10,000 per table.
+* Table Size: Maintain the overall table size below 100MB.
+
+However, for larger data needs, alternatives such as traditional relational databases, NoSQL databases, data warehouses, and cloud storage solutions are suggested [Source 6].
+
+Additionally, there is no information on how to scale a design specifically for 20M+ records. The context only provides general guidelines for optimal performance and suggests using alternative solutions for larger data needs.
+
+Information is missing on how to scale the design to handle such a large number of records.",0.3704,"vector_search, llm_generation",Partial,None,Underconfident,Acceptable,Weak Retrieval,0,"Expected a supported outcome; got partial with none grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-04,"8. Architecture, Scalability, and Design-Defense Questions","What can go wrong in ingestion, retrieval, generation, scoring, and UI, and how would you detect each failure?",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no specific information about potential failures or detection methods for ingestion, retrieval, generation, scoring, and UI. The context only provides general information about Kore.ai's features and functionality.
+
+However, I can provide some general insights based on industry best practices:
+
+* Ingestion: Potential failures could include data formatting issues, incorrect file types, or network connectivity problems. Detection methods might involve checking the API response for errors or using logging mechanisms to track ingestion attempts.
+* Retrieval: Failures could arise from database connection issues, query optimization problems, or data inconsistencies. Detection methods might involve monitoring database performance metrics, tracking query execution times, and analyzing error logs.
+* Generation: Potential failures could include model training issues, incorrect input data, or language model drift. Detection methods might involve monitoring model performance metrics, tracking generation errors, and analyzing user feedback.
+* Scoring: Failures could occur due to scoring algorithm issues, incorrect input data, or model bias. Detection methods might involve monitoring scoring accuracy metrics, tracking scoring errors, and analyzing user feedback.
+* UI: Potential failures could include UI rendering issues, navigation problems, or accessibility concerns. Detection methods might involve monitoring UI performance metrics, tracking user feedback, and conducting accessibility audits.
+
+Please note that these are general insights and may not be specific to Kore.ai's implementation. For more accurate information, I recommend consulting the official documentation or contacting Kore.ai support for guidance on detecting failures in their specific features and functionality.",0.4651,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-05,"8. Architecture, Scalability, and Design-Defense Questions",Why is confidence based on retrieval evidence rather than LLM self-reported certainty?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not fully answer the question of why confidence is based on retrieval evidence rather than LLM self-reported certainty.
+
+The context provides information about Kore.ai's AI Agents and their performance, including rules for ignoring unhelpful words from user utterances, analytics for task execution and conversation insights, and APIs for automation and debugging logs. However, it does not provide any information about the underlying reasoning or methodology behind confidence scoring in Kore.ai's LLM (Large Language Model) based systems.
+
+Specifically, sources [Source 1] to [Source 8] do not mention anything about the relationship between retrieval evidence and self-reported certainty in confidence scoring. Therefore, without additional context or information, it is not possible to provide a definitive answer to this question.",0.5273,"vector_search, llm_generation",Partial,Weak,Underconfident,Acceptable,Weak Retrieval,1,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-06,"8. Architecture, Scalability, and Design-Defense Questions",Why is this truly agentic and not just RAG with extra logging?,Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the Agentic Copilot feature in Kore.ai is designed to provide a more human-like interaction experience for users, while also enhancing efficiency and control for agents. It blends automation with human judgment to deliver fast, accurate, and personalized support at scale.
+
+However, I couldn't find any specific information on why Agentic Copilot is truly agentic and not just RAG (Rule-based Agent Generation) with extra logging. The context only mentions the benefits of Agentic Copilot, such as boosting agent productivity while keeping service empathetic and high quality, but it does not provide a clear explanation for what sets it apart from traditional RAG approaches.
+
+The context also mentions that Agentic Copilot blends automation with human judgment, which may be a key differentiator. However, without further information or clarification on the specific technical details of Agentic Copilot, it is difficult to say definitively why it is truly agentic and not just RAG with extra logging.
+
+Sources:
+
+* [Source 1: https://docs.kore.ai/xo/agentai/configuration/linked-services/]
+* [Source 2: https://docs.kore.ai/xo/agentai/agent-experience/agentic-copilot/agentic-copilot/]
+* [Source 3: https://docs.kore.ai/xo/automation/agent-flows/]
+* [Source 4: https://docs.kore.ai/xo/app-settings/variables/using-bot-variables/]
+* [Source 5: https://docs.kore.ai/xo/automation/agent-flows/]
+* [Source 6: https://docs.kore.ai/xo/apis/automation/koreutil-libraries/]
+* [Source 7: https://docs.kore.ai/xo/agentai/agent-experience/agentic-copilot/agentic-copilot/]
+* [Source 8: https://docs.kore.ai/xo/administration/data/data-services/]",0.5408,"vector_search, llm_generation",Partial,Medium,Underconfident,Correct,False Negative,4,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-07,"8. Architecture, Scalability, and Design-Defense Questions","What would hybrid search add here, and why didn’t you implement it as a core feature?",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, I couldn't find any information on ""hybrid search"" in the provided context.
+
+The context only discusses configuring Search AI functionality with options such as ""None"", ""Use only the inbuilt XO 11 Search App (AA Bot)"", and ""Configure multiple Search Apps across XO 10 or XO 11"". There is no mention of hybrid search.
+
+To answer the question, I would need more information on what hybrid search entails and how it relates to the provided context.",0.5776,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/PROJECT_EVALUATION_QUESTION_BANK.md,ARC-08,"8. Architecture, Scalability, and Design-Defense Questions",How would you evaluate retrieval quality separately from answer quality?,Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that evaluating retrieval quality separately from answer quality is not explicitly mentioned in the given sources.
+
+The context provides information on Answer Insights, which includes metrics such as Similarity Score for how similar the user query is to the document content. However, it does not provide specific guidance on evaluating retrieval quality separately from answer quality.
+
+To evaluate retrieval quality and answer quality, you may need to consider additional factors or consult other sources that are not provided in the given context.",0.5306,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 7 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-01,False Positive,What contractual penalties does Kore.ai impose if uptime drops below SLA?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context provides information on various aspects of the Kore.ai Platform, including analytics dashboards, filter criteria, data retention periods, authentication mechanisms, and API rate limits. However, I couldn't find any information on contractual penalties for uptime drops below Service Level Agreement (SLA).
+
+The context mentions that Kore.ai uses a symmetric encryption key to encrypt Public API request and response payloads [Source 4], but it doesn't provide information on contractual penalties.
+
+To answer the question accurately, more information is needed. If you could provide additional context or clarify what you mean by ""contractual penalties,"" I'd be happy to try and assist you further.",0.5611,"vector_search, llm_generation",Unsupported,Weak,Well-calibrated,Acceptable,Citation Drift,6,"Expected a unsupported outcome; got unsupported with weak grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: citation drift."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-02,False Positive,What is Kore.ai's exact per-agent monthly price for Agent AI Voice?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, I couldn't find any information on Kore.ai's exact per-agent monthly price for Agent AI Voice in the provided context.
+
+The context only provides general information about integrating Kore.ai Agent AI with NICE Agent Desktop environment and other platforms like Amazon Connect and Nice Max. However, it does not mention pricing details.
+
+If you're looking for pricing information, I recommend checking Kore.ai's official website or contacting their sales team directly.",0.6294,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Correct,None,10,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-03,False Positive,Which undocumented admin API lets me bulk-delete all bots in one request?,Low,Tool,"I found no information about an undocumented admin API that allows bulk-deleting of all bots in a single request. The provided context only discusses various APIs for different purposes, such as automation, contact center, search AI, and more, but does not mention a specific API for bulk-deleting bots.
+
+The context also mentions the Kore.ai Platform's Admin Console API Scopes [Source 8], which allows account administrators to assign API scopes to apps to access respective features in AI Agents built into their accounts. However, this information is related to assigning API scopes rather than deleting bots.
+
+If you're looking for a way to bulk-delete bots, I recommend checking the Kore.ai documentation or contacting their support team for more information on available APIs and their usage.",0.6807,"vector_search, llm_generation",Incorrect,Strong,Overconfident,Wrong,Tool Failure,0,"Expected a unsupported outcome; got incorrect with strong grounding, overconfident calibration, wrong routing, 8 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-04,False Positive,Does Kore.ai provide on-call support in the Europe-West region with a 15-minute incident response SLA?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I was unable to find any information about on-call support for the Europe-West region or an incident response SLA of 15 minutes. The provided context only discusses general settings and integrations for Kore.ai, but does not provide specific details about on-call support or service level agreements (SLAs) in different regions.
+
+The context includes information about system settings, agent integrations with Salesforce NICE CX CTI, Intercom, Unblu, and other features, as well as the Kore.ai Web SDK. However, it does not mention on-call support or SLA requirements for specific regions.
+
+If you are looking for information about on-call support or SLAs in a specific region, I recommend contacting Kore.ai's customer support directly to inquire about their policies and procedures.",0.6304,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Acceptable,None,8,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-05,False Positive,What are the exact HIPAA deployment controls required before launching Kore.ai in a hospital?,Low,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context provided does not explicitly mention the exact HIPAA deployment controls required before launching Kore.ai in a hospital. The context only discusses general security and control measures, BYOK (Bring Your Own Key) integration with AWS, JWT token mechanism for authentication, and basic auth options for authorization.
+
+The relevant section on Enterprise Key Management [Source 8] mentions that administrators can utilize the Enterprise Key page to manage data encryption keys, but it does not provide specific HIPAA deployment controls.
+
+To determine the exact HIPAA deployment controls required before launching Kore.ai in a hospital, I would need additional information or context from a trusted source, such as the Health Insurance Portability and Accountability Act (HIPAA) guidelines or a reputable healthcare IT resource.",0.5621,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Correct,None,9,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-06,False Positive,Which Microsoft Teams rate limits apply specifically to Kore.ai bots?,Low,Hybrid,"Based on the provided context, I found that there is no specific information about Microsoft Teams rate limits for Kore.ai bots. The context only mentions general rate limits for Automation AI APIs and Quality AI, as well as Contact Center AI.
+
+The context does not provide any information about Microsoft Teams rate limits specifically for Kore.ai bots. Therefore, I cannot provide a definitive answer to this question based on the provided context.
+
+Information is missing: Specific details about Microsoft Teams rate limits that apply to Kore.ai bots.",0.7374,"api_lookup, vector_search, llm_generation",Unsupported,Strong,Overconfident,Correct,Confidence Miscalibration,6,"Expected a unsupported outcome; got unsupported with strong grounding, overconfident calibration, correct routing, 3 sources; primary issue: confidence miscalibration."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-07,False Positive,Can Kore.ai natively replace AWS Connect end to end without any third-party setup?,Low,Agentic RAG,"Based on the provided context, it appears that Kore.ai does not have native support for replacing AWS Connect end-to-end without any third-party setup. The context mentions various integrations with Amazon Connect, such as using the AgentAssist third-party application created in Amazon Connect (Source 7), but it does not provide information on a native replacement for AWS Connect.
+
+The context also mentions that the Kore.ai support team will configure the integration (trust relationship between Kore and your AWS tenant) on their end and notify you when it's complete, which suggests that some level of third-party setup is required.
+
+Therefore, the answer to the question is: No, Kore.ai does not have native support for replacing AWS Connect end-to-end without any third-party setup.",0.7108,"vector_search, llm_generation",Unsupported,Strong,Overconfident,Correct,Confidence Miscalibration,6,"Expected a unsupported outcome; got unsupported with strong grounding, overconfident calibration, correct routing, 8 sources; primary issue: confidence miscalibration."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-08,False Positive,"What is the migration path from Dialogflow CX to Kore.ai, step by step?",Low,Agentic RAG,"Based on the provided context, I found that there is no explicit information on the migration path from Dialogflow CX to Kore.ai. However, I can provide some general steps and connections between the two platforms.
+
+From what is available in the context, it appears that Dialogflow CX is an external NLU (Natural Language Understanding) service that can be integrated with Kore.ai. To enable this integration, you need to follow these steps:
+
+1. Enable APIs and Services from the top of the display and find the Dialogflow API option.
+2. Upon activation of Dialogflow API, select Manage to open the Dialogflow API management dashboard.
+3. Create a set of credentials to use the API and connect to the Dialogflow cloud from the Kore.ai platform.
+
+It is not clear what the next steps would be in terms of migrating from Dialogflow CX to Kore.ai. However, it can be inferred that this migration might involve integrating Kore.ai's own NLU capabilities or using other integration methods provided by Kore.ai.
+
+Without more specific information on the migration path, I was unable to provide a complete step-by-step guide.",0.6946,"vector_search, llm_generation",Unsupported,Strong,Overconfident,Correct,Confidence Miscalibration,6,"Expected a unsupported outcome; got unsupported with strong grounding, overconfident calibration, correct routing, 8 sources; primary issue: confidence miscalibration."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-09,False Positive,List the private environment variables required by Kore.ai internal staging deployments.,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the question ""List the private environment variables required by Kore.ai internal staging deployments"" is not fully answered in the given sources. 
+
+The relevant section from [Source 7] discusses Environment and Content variables, but it does not specifically address private environment variables for staging deployments.
+
+Additionally, [Source 8] provides information on path parameters and query parameters for creating a voice campaign, but it does not mention private environment variables.
+
+Without further context or information about the specific requirements of Kore.ai internal staging deployments, I cannot provide a complete answer to this question.",0.6327,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-10,False Positive,What governance approval is required before enabling sentiment analysis for regulated insurance calls?,Low,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found the information on governance approval for regulated insurance calls, but it's not explicitly stated in the provided context. The context mentions regulatory compliance and audit trails, which are critical for regulated insurance calls (Source 2). However, it does not provide specific guidance on governance approval for sentiment analysis.
+
+The context also mentions that deterministic dialog tasks are recommended for regulated insurance calls, such as account verification, payment processing, medical symptom triage, loan application forms, etc. (Source 2), but it doesn't specify the governance approval requirements for these types of conversations.
+
+To answer this question accurately, I would need additional information or context about the specific regulations and governance requirements for regulated insurance calls in Kore.ai.",0.4036,"vector_search, llm_generation",Unsupported,Weak,Well-calibrated,Correct,Citation Drift,7,"Expected a unsupported outcome; got unsupported with weak grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: citation drift."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-11,False Positive,What changed in the latest unreleased Kore.ai platform build?,Low,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I couldn't find any information about changes in the latest unreleased Kore.ai platform build. The provided context only includes documentation for the Kore.ai Web SDK, Quality AI API List, Agent AI API List, and configuration instructions.
+
+The context does not mention anything about an unreleased platform build or what changes might have been made to it. Therefore, I couldn't provide a specific answer to this question based on the given information.
+
+Information is missing: details about the latest unreleased Kore.ai platform build, including any changes that may have been made.",0.5645,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Wrong,Tool Failure,6,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-12,False Positive,Which billing API endpoint can I use to pull real-time Kore.ai invoice data?,Low,Tool,"Based on the provided context, I found that there is no specific billing API endpoint mentioned for pulling real-time Kore.ai invoice data.
+
+The context provides information about the Billing section, which allows Bot Admins to view and track their Invoices and plan details. However, it does not specify any API endpoints for retrieving real-time invoice data.
+
+Additionally, the Contact Volume API is mentioned, but its purpose is to retrieve call volume details associated with a specified collection point for a given interval, which is not related to billing or invoices.
+
+Therefore, I was unable to find an answer to your question based on the provided context.",0.7344,"api_lookup, vector_search, llm_generation",Unsupported,Medium,Overconfident,Wrong,Tool Failure,2,"Expected a unsupported outcome; got unsupported with medium grounding, overconfident calibration, wrong routing, 3 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-13,False Positive,How many GPUs does Kore.ai allocate per enterprise tenant?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the information about GPU allocation is missing. The context only mentions the installation process of the Kore Agent AI package and configuration steps for integrating it with Salesforce and NICE MAX Desktop, but does not provide any details about GPU allocation.
+
+Therefore, I cannot provide a specific answer to the question about how many GPUs Kore.ai allocates per enterprise tenant.",0.4715,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Correct,None,9,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-14,False Positive,Does Kore.ai guarantee GDPR Article 28 addendum templates out of the box?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no information about GDPR Article 28 addendum templates being available out of the box in Kore.ai. The context only discusses how to use template apps from the store and configure integrations with ServiceNow and other external systems.
+
+The relevant section from [Source 1: https://docs.kore.ai/xo/app-settings/Store/] mentions that when using an App template from the store, you can click ""Use Template"" to import it into your account. However, there is no mention of GDPR Article 28 addendum templates being available or guaranteed.
+
+Additionally, [Source 8: https://docs.kore.ai/xo/administration/data/data-services/] discusses Data Definition, which includes defining Data Tables and Views, but does not provide information about GDPR Article 28 addendum templates.
+
+Therefore, I cannot confirm whether Kore.ai guarantees GDPR Article 28 addendum templates out of the box. More information is needed to answer this question accurately.",0.5806,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FP-15,False Positive,Which exact competitors does Kore.ai beat on total cost of ownership according to official docs?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found the information about Kore.ai's competitors in terms of total cost of ownership from [Source 1: https://docs.kore.ai/xo/apis/agent-ai/api-list/].
+
+Unfortunately, the provided context does not explicitly mention which exact competitors Kore.ai beats on total cost of ownership. The table lists APIs available for Agent AI, but it does not provide information about competitors.
+
+The context mentions that Kore.ai has one of the best NLP engines in the market and provides an ability to make an external NLU engine co-exist with its built-in NLP engines [Source 4: https://docs.kore.ai/xo/app-settings/integrations/external-nlu/external-nlu-adapters/], but it does not mention competitors.
+
+Therefore, I was unable to answer the question based on the provided context.",0.5573,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Acceptable,None,8,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, acceptable routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-01,False Negative,How do I configure a Kore.ai widget theme?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+To configure a Kore.ai widget theme, you can follow these steps:
+
+1. Open the Agent AI Settings page.
+2. Click on ""Agent AI Channel Specific Settings"".
+3. In this section, you can customize various settings for your channel.
+
+However, I found that there is no explicit information on how to configure a specific widget theme within the provided context.
+
+The Kore.ai documentation does provide an example of customizing the Agent AI widget layout using HTML and CSS, but it does not specifically address widget themes. 
+
+For more information on customizing the Agent AI widget layout, you can refer to [Source 2: https://github.com/Koredotcom/web-kore-sdk] which provides a basic template for creating a Kore.ai widget.
+
+If you need further assistance or clarification on configuring a specific widget theme, please provide more context or details.",0.6471,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 5 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-02,False Negative,What steps are involved in creating a dialog from an utterance?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the steps involved in creating a dialog from an utterance are not explicitly stated. However, I can provide some information on how DialogGPT works (Source 2) and how Kore.ai's conversation flows work (Source 8).
+
+According to Source 2, DialogGPT triggers the resolved intent with the appropriate fulfillment action, which involves executing dialog tasks or FAQs, generating responses for system intents using Answer Generation, and asking for clarification in case of ambiguous events.
+
+In Source 8, it is mentioned that every flow starts with an utterance from the user that initiated the conversation and expands to show further interactions. These utterances are grouped based on their similarity, ignoring stop words and values for entities, and lead to one of the following intents: Individual task intents, FAQs, Small Talk, Help, or Not Handled utterances.
+
+It appears that creating a dialog from an utterance involves the following steps:
+
+1. Utterance detection and grouping (Source 8)
+2. Intent identification (Source 8)
+3. Triggering DialogGPT with the resolved intent (Source 2)
+4. Execution of dialog tasks or FAQs (Source 2)
+
+However, without more information on how Kore.ai's conversation flows are implemented, it is difficult to provide a complete and accurate answer on the steps involved in creating a dialog from an utterance.
+
+Information like the response messages and fulfillment from external NLU models (Source 6) and the execution of all nodes of a Dialogue Task (Source 6) may also be relevant, but their exact role in creating a dialog from an utterance is not clear without further context.",0.6052,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-03,False Negative,What channels are available for Kore.ai bots?,Medium,Hybrid,"According to the provided context, the following channels are mentioned:
+
+1. Voice Channel
+2. Chat Channel
+
+These channels are part of the integration with Nice Max Desktop for Outbound Calls and Unblu channel.
+
+No other channels are explicitly mentioned in the context. If you're looking for a comprehensive list of available channels, it's recommended to visit the Kore.ai documentation or BotKit repository for more information.",0.7016,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Misclassification,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-04,False Negative,What does the BotKit SDK help developers do?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+The BotKit SDK helps developers provide more control over the assistants they build by providing platform-specific client libraries that allow them to get Platform capabilities into custom applications quickly and conveniently. [Source 1]",0.6382,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 5 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-05,False Negative,How does the Android Kore SDK fit into a mobile implementation?,Medium,Plain RAG,"The Android Kore SDK is designed to help developers integrate the Kore.ai chat widget into their custom applications with minimal coding. It allows users to interact naturally via conversational UI.
+
+To implement the Android Kore SDK, you can use the KoreLibrary branch from the iOS-kore-sdk repository (https://github.com/Koredotcom/iOS-kore-sdk/tree/KoreLibrary). 
+
+However, I found that there is limited information available on how to integrate the Android Kore SDK directly. The provided context only mentions the integration process for the iOS version.
+
+To get more information on integrating the Android Kore SDK, you may need to refer to additional resources or documentation specific to the Android platform.",0.6556,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-06,False Negative,What prerequisites are listed for the Amazon Connect integration with Agent AI Voice?,High,Plain RAG,"According to [Source 4: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice/amazon-connect-with-agentai-voice-via-aws-third-party-applications/], the prerequisites for integrating Agent AI with Amazon Connect are:
+
+* The AgentAssist third-party application created in Amazon Connect using AWS Third-party Applications.
+ 
+Additional information is needed to fully answer the question, as [Source 4] does not provide a comprehensive list of prerequisites.",0.6864,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-07,False Negative,What options are available when configuring External Voice Transfer?,Medium,Plain RAG,"Based on the provided context, it appears that there is only one option available when configuring External Voice Transfer in Amazon Connect:
+
+- Selecting the ""External voice system"" option.
+
+This information can be found in Sources 2 and 4. 
+
+The exact steps for enabling this feature are not fully detailed in the provided context, but they seem to involve submitting a Service Quota Increase request to Amazon Connect and accessing the ""External voice systems"" option once approved.",0.6546,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-08,False Negative,What are the API rate limits according to the system?,High,Tool,"According to the provided context, there are three API rate limits enforced by Kore.ai:
+
+1. Quality AI - 60-second limit
+2. Contact Center AI - 60-second limit
+3. Case Management - 60-second limit
+
+All three have the same time frame of sixty seconds for making requests without exceeding the rate limit.
+
+No additional information is found in the context to provide more specific details about these limits.",0.667,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-09,False Negative,What does the platform health endpoint report?,High,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context provided does not mention the ""platform health endpoint report"". The information about reports in Kore.ai is limited to the Evaluation Form Summary Report, IVR Containment Report, Agent Performance Report, and Agent Metrics Daily Report. There is no mention of a ""platform health endpoint report"".
+
+Therefore, I cannot provide an answer based on the provided context.",0.4534,"vector_search, llm_generation",Partial,Medium,Underconfident,Wrong,Tool Failure,1,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-10,False Negative,Compare BotKit SDK and AgentAssistWidget at a high level.,Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no direct comparison between BotKit SDK and AgentAssistWidget. The context only provides information about various Kore.ai features, settings, and best practices, but does not mention these two specific entities.
+
+To answer the question, I would need additional context or information about what specifically you want to compare between BotKit SDK and AgentAssistWidget. Without this information, it is difficult for me to provide a high-level comparison.
+
+If you could provide more context or clarify what aspects of BotKit SDK and AgentAssistWidget you would like to compare, I would be happy to try and assist you further.",0.4938,"vector_search, llm_generation",Partial,None,Underconfident,Correct,Weak Retrieval,0,"Expected a supported outcome; got partial with none grounding, underconfident calibration, correct routing, 6 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-11,False Negative,How can I identify whether a source came from GitHub or docs.kore.ai in the UI?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no information about identifying the source of a link as coming from GitHub or docs.kore.ai in the UI. The context only provides information about integrating Dialogflow with Kore.ai and accessing various APIs.
+
+The context does not mention anything about identifying the source of links in general, let alone distinguishing between GitHub and docs.kore.ai specifically.
+
+Therefore, I was unable to find a definitive answer to your question based on the provided context.",0.4946,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Misclassification,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-12,False Negative,Where can I inspect the reasoning steps for an answer?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context does not provide information on how to inspect the reasoning steps for an answer. The provided sources are related to Kore.ai's Agent Node, automation, and LLM usage logs API, but none of them mention how to view or analyze the reasoning steps for an answer.
+
+The Kore.ai documentation provides information on tools, tool configuration, and scenario setup, but it does not cover the topic of inspecting reasoning steps. Therefore, I was unable to find a specific answer to your question based on the provided context.
+
+If you have any further questions or need help with something else, feel free to ask!",0.4346,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-13,False Negative,"When confidence is low, what should the user see?",High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no specific information about what the user should see when their confidence is low.
+
+The context provides information about Kore.ai's UI components, such as cards, lists, tables, and suggestion chips, but it does not mention anything about displaying a message or visual cue when confidence is low.
+
+Additionally, the context discusses various charts (Pie Chart, Donut Chart, Label Chart) used for aggregation data, but it does not relate to user confidence levels.
+
+The context also provides information about Kore.ai's APIs and automation features, including fetching debug logs, but there is no mention of displaying a message or visual cue when confidence is low.
+
+Therefore, I was unable to find the answer to the question based on the provided context.",0.4674,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-14,False Negative,What is the difference between a simple documentation lookup and a query that needs multiple sources?,Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that a simple documentation lookup involves searching within a single source or library, whereas a query that needs multiple sources involves searching across multiple sources to find relevant results.
+
+The context mentions that ""results"" are grouped by source type as the key value [Source 1], and that search functionality automatically updates the library list to match the search query [Source 2]. This suggests that simple documentation lookups may involve a single source or library, whereas queries that need multiple sources require searching across multiple sources.
+
+However, without further information on how Kore.ai distinguishes between these two types of searches, it is difficult to provide a more detailed answer.",0.4922,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,FN-15,False Negative,What are the core stages in the ingestion pipeline?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no specific mention of ""core stages"" in the ingestion pipeline. However, I did find information about Stages and Steps in the playbook configuration.
+
+According to [Source 4: https://docs.kore.ai/xo/agentai/agent-experience/playbook/], a playbook has two main categories: Stages and Steps. By default, Stages are available as Open and Close. There can be multiple steps inside each stage, and you can choose how step progression (sequential or random) takes place.
+
+It appears that the context does not provide information about the core stages in the ingestion pipeline. The provided sources mention Stages and Steps in the context of playbook configuration, but do not specifically discuss the ingestion pipeline.",0.4855,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 5 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-01A,Near-Neighbor Pair,How do I configure the Amazon Connect integration with Agent AI Voice?,High,Plain RAG,"To configure the Amazon Connect integration with Agent AI Voice, you need to follow these steps:
+
+1. Create an AgentAssist third-party application in Amazon Connect using AWS Third-party Applications (Source 5).
+2. Use the Amazon Connect Contact Control Panel as the Agent Desktop to track new conversations on the client side and render the conversation-specific Agent AI widget within the Agent Desktop (Source 6, Source 7).
+
+Note that customers can host the integration solution within their own domain by getting the Integration SDK from their representative.
+
+I found no specific configuration steps or detailed instructions in the provided context. If you need more information on configuring the Amazon Connect integration with Agent AI Voice, I recommend checking the official Kore.ai documentation or contacting a Kore.ai representative for further assistance.",0.8076,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-01B,Near-Neighbor Pair,How do I configure the Twilio Flex integration with Agent AI Voice?,Low,Plain RAG,"I found that the context provides information on configuring the Twilio Verify integration, but not specifically on configuring the Twilio Flex integration with Agent AI Voice.
+
+The context mentions that if you have not configured any integration for your AI Agent, you will see the Explore Integration option. Once you click this option, you will be redirected to the Actions page to configure an integration for your AI Agent (Source 2).
+
+However, I could not find any information on configuring the Twilio Flex integration with Agent AI Voice in the provided context.
+
+To answer this question accurately, I would need more information or context about how to configure the Twilio Flex integration with Agent AI Voice.",0.7369,"vector_search, llm_generation",Unsupported,Strong,Overconfident,Acceptable,Confidence Miscalibration,5,"Expected a unsupported outcome; got unsupported with strong grounding, overconfident calibration, acceptable routing, 8 sources; primary issue: confidence miscalibration."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-02A,Near-Neighbor Pair,What does the BotKit SDK do?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, I couldn't find any information on what the BotKit SDK does in the provided context. The context appears to be related to Kore.ai's APIs and automation features, but it doesn't mention the BotKit SDK.
+
+The repeated lines of text seem to indicate that the bot is still accessible through various channels, but there is no information on the BotKit SDK itself.
+
+To answer your question accurately, I would need more context or information about the BotKit SDK.",0.4686,"vector_search, llm_generation",Partial,None,Underconfident,Correct,Weak Retrieval,0,"Expected a supported outcome; got partial with none grounding, underconfident calibration, correct routing, 5 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-02B,Near-Neighbor Pair,What does the BotKit Terraform provider do?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context doesn't provide information about what the BotKit Terraform provider does. The provided sources only discuss Agent Transfer, integrations, and bot management in Kore.ai, but not the BotKit Terraform provider.
+
+Therefore, I couldn't find a definitive answer to your question based on the given context.",0.5342,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Correct,None,9,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-03A,Near-Neighbor Pair,What are the API rate limits?,High,Tool,"According to the provided context, the API rate limits are enforced by Quality AI, Contact Center AI, and Case Management, with the same rules applying to all three.
+
+Requests are monitored against a sixty-second limit. As long as the limit is not exceeded, the account/application can continue making requests.
+
+[Source 1: https://docs.kore.ai/xo/apis/automation/rate-limit-quality-ai/]
+
+No additional information about custom or higher rolling rate limits is provided in the context.",0.6851,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-03B,Near-Neighbor Pair,What are the billing export API rate limits?,Low,Tool,"I found that the provided context does not mention specific rate limits for the billing export API. The context only discusses general rate limits for Contact Center AI, Quality AI, and provides best practices for managing rate limits in general.
+
+The API Data section [Source 3] mentions a rolling Rate Limit with values of 100 requests per minute and 10,000 requests per day, but it does not specify the billing export API.",0.6643,"api_lookup, vector_search, llm_generation",Incorrect,Strong,Overconfident,Wrong,Tool Failure,0,"Expected a unsupported outcome; got incorrect with strong grounding, overconfident calibration, wrong routing, 3 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-04A,Near-Neighbor Pair,What prerequisites are required for External Voice Transfer setup?,Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+According to the provided context from [Source 1: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/], the prerequisites for External Voice Transfer setup are:
+
+*   External voice transfer connectors per account with AWS Connect Instance enabled.
+*   A Kore voice AI Agent trained with few use cases.
+
+These prerequisites are mentioned in the ""Prerequisites"" section of the document.",0.5726,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 5 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-04B,Near-Neighbor Pair,What prerequisites are required for WhatsApp Voice Transfer setup?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the provided context does not mention WhatsApp Voice Transfer setup. The context only discusses Amazon Connect and Kore voice AI Agent integration, as well as a general overview of setting up external voice transfer connectors.
+
+Information is missing regarding WhatsApp Voice Transfer setup.",0.4836,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Correct,None,10,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-05A,Near-Neighbor Pair,Can I inspect the full retrieved source text in the UI?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that there is no direct way to inspect the full retrieved source text in the UI. The available options include:
+
+* Retrieving Chunks: Lists the relevant retrieved chunks, but does not provide access to the full source text.
+* Request and Response: Shows the response in JSON format, which may contain some information about the source text, but it is not clear if this includes the full source text.
+
+It appears that the full retrieved source text is not directly accessible through the UI. The context only provides information on how to view certain details related to the conversation, such as the chat history and request/response logs, but does not provide a way to access the full source text.",0.4374,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Misclassification,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-05B,Near-Neighbor Pair,Can I inspect the full original website page content for every citation in the UI?,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that the Kore.ai documentation does not provide a clear answer to the question of whether you can inspect the full original website page content for every citation in the UI.
+
+The relevant sections of the documentation related to NLP analysis and ingestion of data from files or web URLs do not mention anything about accessing the full original website page content. Specifically, [Source 1] mentions that when `sourceType` is `web`, you should use the `documents` field to provide web URLs to be crawled, but it does not discuss how to access the full original website page content.
+
+[Source 2] provides an example of a document object with a `urls` array, but it does not mention anything about accessing the full original website page content.
+
+The documentation does mention that if a URL is already crawled, it is crawled again, and if a new URL is provided, it is crawled if permitted by the source settings. However, this information does not provide insight into how to access the full original website page content for every citation in the UI.
+
+Therefore, without further information or clarification, I cannot provide a definitive answer to the question of whether you can inspect the full original website page content for every citation in the UI.",0.3537,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-06A,Near-Neighbor Pair,Which tools were used to answer this question?,High,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that no specific tools were mentioned as being used to answer the question. The context only provides information about the rules for a conversation flow, but does not mention any tools or methods used to answer the question.
+
+The context is identical across all five sources, and none of them provide additional information about the tools used to answer the question.
+
+Therefore, I cannot determine which tools were used to answer this question based on the provided context.",0.2331,"vector_search, llm_generation",Partial,None,Underconfident,Wrong,Misclassification,0,"Expected a supported outcome; got partial with none grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-06B,Near-Neighbor Pair,Which external CRM API credentials did the system use to answer this question?,Low,Agentic RAG,"I found that the context does not provide information on which external CRM API credentials were used to answer the question. The provided sources ([Source 1], [Source 2], and [Source 3]) discuss Kore.ai's integration with HubSpot, but they do not mention external CRM API credentials.
+
+The context also mentions authorization keys and parameters required by an external engine for APIs access, but it does not specify which external CRM API was used or what its credentials are.",0.6686,"api_lookup, vector_search, llm_generation",Incorrect,Weak,Overconfident,Acceptable,Hallucination,0,"Expected a unsupported outcome; got incorrect with weak grounding, overconfident calibration, acceptable routing, 3 sources; primary issue: hallucination."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-07A,Near-Neighbor Pair,What does the health endpoint report?,High,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I don't have enough information to answer what the health endpoint reports.
+
+The provided context only mentions that a call, including the health endpoint, may be monitored or recorded for quality and training purposes. However, it does not provide any details about what specific information is reported by the health endpoint.
+
+[Source: The provided context itself]",0.3636,"vector_search, llm_generation",Partial,None,Underconfident,Wrong,Tool Failure,0,"Expected a supported outcome; got partial with none grounding, underconfident calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-07B,Near-Neighbor Pair,What does the audit-log endpoint report?,Low,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+The audit-log endpoint reports system and user events for several Kore.ai products. [Source 5]
+
+Information on what specific data is reported by the endpoint, such as payload details or request-response dynamics, is not provided in the context.
+
+Sources:
+- https://docs.kore.ai/xo/administration/analytics/
+- https://docs.kore.ai/xo/administration/audit-logs-new-admin-console/
+- https://docs.kore.ai/xo/apis/automation/get-admin-console-audit-logs/
+- https://docs.kore.ai/xo/analytics/genai-analytics/llm-usage-logs/",0.5178,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-08A,Near-Neighbor Pair,How is confidence handled when evidence is weak?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+According to the provided context, there is no explicit information on how confidence is handled when evidence is weak.
+
+The context shows that the `confidence` value in the `n_best` array ranges from 0 to 0.36628652 for each word. However, it does not provide any specific guidance on what happens when the confidence value is close to 0 or below a certain threshold.
+
+Additionally, there is no information on how Kore.ai handles weak evidence in terms of confidence handling.
+
+The only relevant statement in the context is:
+
+"". This call may be monitored or recorded for quality and training purposes"" [Source 5-6], which does not provide any insight into confidence handling.
+
+Therefore, without further information, it is not possible to determine how confidence is handled when evidence is weak.",0.2307,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 6 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,PAIR-08B,Near-Neighbor Pair,How is confidence handled when legal liability is high?,Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context does not provide information on how confidence is handled when legal liability is high.
+
+The provided sources ([Source 1] to [Source 6]) discuss various topics related to Kore.ai, such as app settings, integrations, analytics, and APIs, but do not address the specific question of handling confidence in situations with high legal liability.
+
+Therefore, I cannot provide a definitive answer to this question based on the provided context.",0.2984,"vector_search, llm_generation",Unsupported,None,Well-calibrated,Acceptable,None,4,"Expected a unsupported outcome; got unsupported with none grounding, well-calibrated calibration, acceptable routing, 6 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-01,Confidence Calibration,What is a dialog task?,High,Plain RAG,"Based on the provided context, I found that a ""dialog task"" refers to a specific action or set of actions within a Kore.ai conversation flow.
+
+According to [Source 1], a dialog task is not explicitly defined, but it is mentioned in the context of selecting how to execute a dialog task.
+
+[Source 2] mentions ""executing dialog tasks or FAQs"", which implies that a dialog task is an action taken by DialogGPT as part of its orchestration process. However, the exact definition of a dialog task is not provided.
+
+The context does not provide a clear and concise definition of what constitutes a dialog task. More information is needed to accurately answer this question.",0.7338,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-02,Confidence Calibration,Summarize the Amazon Connect with Agent AI Voice setup process in one paragraph.,Medium,Plain RAG,"The setup process for Amazon Connect with Agent AI Voice is not explicitly described in the provided context. However, based on the information available, it appears that the integration involves using AWS third-party applications or CCP Integration approach to enable real-time support to agents. The exact steps and details of the setup process are not specified in the provided documents.
+
+Found: Information missing for a detailed description of the setup process.",0.8057,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-03,Confidence Calibration,What are the platform API rate limits?,High,Tool,"The context provided does not explicitly state the platform API rate limits. However, it mentions that requests are monitored against a sixty-second limit across various Kore.ai products such as Quality AI, Case Management, and Contact Center AI.
+
+The available information suggests that these products enforce rate limits to restrict the number of API requests an account/application can make within a timeframe, but the specific rate limits for each platform are not specified.",0.7618,"api_lookup, vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 3 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-04,Confidence Calibration,What is Kore.ai's pricing for nonprofit healthcare agencies?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the provided context does not mention Kore.ai's pricing for nonprofit healthcare agencies. The context only discusses the Billing section, which allows Bot Admins to view and track their Invoices and plan details, but it does not provide information on pricing for specific types of organizations.
+
+The context also mentions Quality AI API List, Rate Limits, and Billing Usage Summary APIs, but none of these sections discuss pricing.
+
+Therefore, I was unable to find the answer to the user's question based solely on the provided context.",0.4264,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Correct,None,9,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-05,Confidence Calibration,How do I create a dialog task from an utterance?,High,Plain RAG,"To create a dialog task from an utterance, follow these steps:
+
+1. Click the ""Add Intent"" dropdown.
+2. Select the ""Dialog Task"" option to create a new intent for the selected utterance.
+3. The ""Create Dialog"" panel is displayed. Enter the required details and click ""Proceed"" to add the new intent for the utterance.
+
+This information can be found in [Source 1: https://docs.kore.ai/xo/analytics/automation/conversation-insights/].",0.7089,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-06,Confidence Calibration,Explain the difference between BotKit SDK and Android Kore SDK in two sentences.,Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, I found that the provided context does not explicitly explain the differences between the BotKit SDK and the Android Kore SDK. The context provides information about the Kore.ai Web SDK, but it does not mention the BotKit SDK or its relationship to the Android Kore SDK.",0.6434,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Misclassification,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-07,Confidence Calibration,Does Kore.ai include a documented billing export endpoint?,Low,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that Kore.ai does not explicitly document a billing export endpoint. The context only discusses billing sessions and usage summary APIs, but it does not mention an endpoint for exporting billing data.
+
+The information available in the context suggests that billing sessions are tracked at the individual app or bot level, and there is no clear indication of how to access or export this data.
+
+Information missing: A documented billing export endpoint.",0.5941,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Wrong,Tool Failure,6,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-08,Confidence Calibration,What prerequisites are listed for External Voice Transfer?,Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+According to the provided context, the prerequisites for External Voice Transfer in Amazon Connect are:
+
+- External voice transfer connectors per account with AWS Connect Instance enabled.
+- A Kore voice AI Agent trained with few use cases.
+
+[Source 1: https://docs.kore.ai/xo/agentai/integration/amazon-connect-voice-automation/amazon-connect-integration-using-voice-automation/]
+
+Note that the context does not provide additional information on what ""few use cases"" means, as it is unclear if this refers to a specific number or type of use cases.",0.5498,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 5 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-09,Confidence Calibration,What changed in the latest platform release?,Low,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the latest platform release is v10.9.1 [Minor] on 19-Dec-2024: Master branch.
+
+According to Source 5, this minor release includes the following bugfixes:
+
+1. Kore markdown horizontal line issue fixed
+2. Added masking functionality in Agent desktop
+
+No new features were mentioned in this release.
+
+Information about any additional changes or features is missing from the provided context.",0.5472,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Wrong,Tool Failure,6,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-10,Confidence Calibration,How should I interpret a medium-confidence answer in this system?,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Unfortunately, the provided context does not explicitly address how to interpret a medium-confidence answer in this system. The context discusses various topics related to Kore.ai, such as app settings, automation, dialog flows, and analytics, but it does not provide information on confidence levels or interpretation of answers.
+
+The context mentions ""medium-confidence"" in [Source 2: https://docs.kore.ai/xo/automation/agent-flows/], which states that the system uses deterministic flows when regulatory compliance is critical, audit trails are required, and so on. However, it does not explain how to interpret confidence levels or what a medium-confidence answer means in this context.
+
+Without additional information or clarification from Kore.ai, it is difficult to provide a definitive answer on how to interpret a medium-confidence answer in this system.",0.3311,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-11,Confidence Calibration,Why are you not confident in this answer?,Low,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the question ""Why are you not confident in this answer?"" is missing information about the specific intent or query that led to the current response.
+
+The context object contains a user query ""How about Orlando?"" and its rephrased version ""How about the weather in Orlando?"", but there is no indication of how these queries relate to the current response or why the agent is not confident in the answer.
+
+Without more information about the specific intent, query, or conversation history, it is difficult to provide a definitive answer.",0.3817,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Acceptable,None,9,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-12,Confidence Calibration,What does the health endpoint say about uptime?,High,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context provided does not mention a ""health endpoint"" or any information related to uptime. The context only discusses Kore.ai's Bamboo HR integration, dashboard metrics, and bot action services.
+
+The relevant section from [Source 4: https://docs.kore.ai/xo/administration/dashboard-bac/] mentions Real-time Status, which provides an overview of the entire enterprise account at a given point in time. However, it does not mention uptime or any information related to health endpoints.
+
+Therefore, I cannot provide an answer about what the health endpoint says about uptime based on the provided context.",0.4037,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Tool Failure,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-13,Confidence Calibration,Can Kore.ai replace all enterprise telephony infrastructure on its own?,Low,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that Kore.ai does not claim to be able to replace all enterprise telephony infrastructure on its own.
+
+The context mentions various integrations with different telephony systems such as Salesforce NICE CX CTI [Source 2], ServiceNow [Source 3], Genesys [Source 6], and NICE Max Desktop [Sources 4 and 5]. These integrations allow Kore.ai to seamlessly hand off AI Agent conversations to live agents on these platforms, but it does not imply that Kore.ai can replace the entire enterprise telephony infrastructure.
+
+The context also mentions the use of BotKit for custom agent transfer integrations [Source 7], which suggests that Kore.ai can customize its integration with specific systems, but this is not a claim to replace all existing telephony infrastructure.
+
+Therefore, I could not find any information in the provided context that supports the claim that Kore.ai can replace all enterprise telephony infrastructure on its own.",0.6093,"vector_search, llm_generation",Unsupported,Strong,Well-calibrated,Correct,None,10,"Expected a unsupported outcome; got unsupported with strong grounding, well-calibrated calibration, correct routing, 7 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-14,Confidence Calibration,What are the stages of the ingestion pipeline in this project?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the question about the stages of the ingestion pipeline is not fully answered.
+
+The context mentions ""Stages"" as part of the primary playbooks, but it does not explicitly list the stages of the ingestion pipeline. The provided sources mention ""Open stage"" and ""Close stage"", which are part of the primary playbooks, but do not provide information on the specific stages of the ingestion pipeline.
+
+Therefore, I cannot provide a definitive answer to this question based solely on the provided context.",0.5094,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,CAL-15,Confidence Calibration,What is the exact legal review process for enabling sentiment analysis?,Low,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I couldn't find any information on the exact legal review process for enabling sentiment analysis in the provided context. The context only discusses Kore.ai automation, agent nodes, prompts, and APIs, but does not mention sentiment analysis or its legal review process.
+
+The context provides information on rules for invalid inputs, tool failures, business rule violations, exit scenarios, permission restrictions, NLP analysis, and API usage logs, but none of these topics relate to sentiment analysis.",0.4394,"vector_search, llm_generation",Unsupported,Medium,Well-calibrated,Acceptable,None,8,"Expected a unsupported outcome; got unsupported with medium grounding, well-calibrated calibration, acceptable routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-01,Citation / Grounding,Which exact source supports your statement about the prerequisites for Amazon Connect integration?,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the exact source supporting the statement about the prerequisites for Amazon Connect integration is [Source 5: https://docs.kore.ai/xo/agentai/integration/amazon-connect-ccp-agentai-chat/amazon-connect-ccp-integration-agentai-chat/].
+
+The specific information about the components required for the integration, such as Amazon Connect and Custom Contact Control Panel (CCP), can be found in this source.",0.6441,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 6 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-02,Citation / Grounding,Show me the source that supports your answer about BotKit SDK event handling.,High,Plain RAG,"The information provided in the context does not specify how to handle events with the BotKit SDK. However, it mentions that once you build a Dialog task using the Dialog Editor, you can subscribe to all the message and webhook events (Source 5: https://github.com/Koredotcom/BotKit).
+
+For more detailed instructions on event handling with BotKit SDK, I found that the documentation for Kore Bot Server SDK is available at https://developer.kore.ai/docs/bots/sdks/using-the-botkit-sdk/.",0.6654,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Acceptable,None,9,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, acceptable routing, 7 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-03,Citation / Grounding,Which source proves that API rate limits came from a tool-backed answer rather than a guessed documentation summary?,High,Tool,"Based on the provided context, I found that the question about which source proves that API rate limits came from a tool-backed answer rather than a guessed documentation summary is not fully answered.
+
+The context mentions that Quality AI and Case Management enforce rate limits to restrict the number of API requests an account/application can make within a timeframe, with requests monitored against a sixty-second limit. However, it does not provide information on whether these rate limits come from a tool-backed answer or a guessed documentation summary.
+
+Therefore, I was unable to find a source that proves API rate limits came from a tool-backed answer rather than a guessed documentation summary.",0.6968,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 8 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-04,Citation / Grounding,"Are these citations semantically related, or do they directly support the specific steps you listed?",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the citations are from different Kore.ai APIs and documentation. However, I couldn't determine if the citations are semantically related or directly support the specific steps listed.
+
+The context mentions [Source 1], which discusses ontology and taxonomy rules, but it doesn't provide information about semantic relationships between citations.
+
+[Source 2] and [Source 3] discuss answer generation and RAG (Retrieval-Augmented Generation) techniques, but they don't mention semantic relationships between citations.
+
+[Source 4] talks about obtaining details of multiple ambiguous intents from different engines, but it doesn't provide information about citation analysis.
+
+[Source 5] discusses NLP insights and intent identification, but it doesn't address the specific question of semantic relationships between citations.
+
+[Source 6] explains how to ingest data, including web URLs, but it doesn't mention citation analysis.
+
+[Source 7] provides general information about NLP analysis, but it doesn't specifically address the relationship between citations.
+
+Information is missing on how to determine if the citations are semantically related or directly support the specific steps listed.",0.4586,"vector_search, llm_generation",Partial,Weak,Underconfident,Acceptable,Weak Retrieval,1,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, acceptable routing, 7 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-05,Citation / Grounding,"If one citation is from a theming page and the answer is about dialog creation, why was it included?",Medium,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that the question ""If one citation is from a theming page and the answer is about dialog creation, why was it included?"" does not have a clear answer in the given sources.
+
+The context only provides information on how to create a new Dialog Task or FAQ for an utterance, how DialogGPT processes user utterances, and some general settings and configurations. It does not provide any specific details about why citations from theming pages might be included in answers related to dialog creation.
+
+Therefore, I was unable to find a clear answer to this question based on the provided context.",0.5418,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-06,Citation / Grounding,"Show me the full retrieved chunk, not just the citation label, for the statement about connector options.",High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found the information you requested in [Source 5: https://docs.kore.ai/xo/apis/searchai/advance-search/].
+
+Unfortunately, I couldn't find any specific information on ""connector options"" in the provided context. The context only provides general information about chunks and retrieval accuracy.
+
+However, I can suggest that you check the ""Retrieved Chunks"" section for more information on retrieved chunks, which may include relevant information on connector options.",0.4875,"vector_search, llm_generation",Partial,Medium,Underconfident,Wrong,Misclassification,1,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-07,Citation / Grounding,Did you cite the original docs link or only a local markdown file representation?,High,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+The answer to the question is that I did not cite the original doc link. Instead, I cited a local markdown file representation of the documentation.
+
+Since there is no information about citing the original doc link in the provided context, it appears that this information is missing.",0.4592,"vector_search, llm_generation",Partial,Strong,Underconfident,Acceptable,False Negative,4,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, acceptable routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-08,Citation / Grounding,"Which citation supports the difference between Android Kore SDK and AgentAssistWidget, and which claims are unsupported?",Medium,Agentic RAG,"I found that the provided context does not explicitly mention the difference between Android Kore SDK and AgentAssistWidget. The context only provides information about the AgentAssistWidget and its usage.
+
+The context mentions that for version 2 (v2) of Agent AI, you should add a specific URL to the Agent AI URL [Source 3: https://docs.kore.ai/xo/agentai/integration/servicenow/chat-integration-with-servicenow/]. However, it does not provide information about Android Kore SDK.
+
+Therefore, I was unable to find any citation that supports or claims differences between Android Kore SDK and AgentAssistWidget.",0.6578,"vector_search, llm_generation",Correct,Medium,Well-calibrated,Correct,None,9,"Expected a supported outcome; got correct with medium grounding, well-calibrated calibration, correct routing, 3 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-09,Citation / Grounding,"If a source was retrieved but not used in the final answer, can I tell?",Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, it appears that there is no direct information on whether a source was retrieved but not used in the final answer.
+
+The context provides details on how to access detailed insights for each query, including the generated answer and retrieved chunks. However, it does not explicitly state whether these sources are used or ignored if they do not match the final answer.
+
+To determine this, additional information would be needed from other parts of the Kore.ai documentation or system logs.",0.4093,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Misclassification,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,GRD-10,Citation / Grounding,Can you show a case where the top retrieved source is relevant but still not sufficient to justify the full answer?,Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there isn't a specific example or scenario described where the top retrieved source is relevant but still not sufficient to justify the full answer.
+
+The context provides information on how to access detailed insights for each query, including the generated answer and retrieved chunks. It also describes the NLP Analysis section, which lists the relevant retrieved chunks, the top chunks sent to the LLM for answer generation, and the specific chunks used in the final response.
+
+However, it does not provide a concrete example of a case where the top retrieved source is relevant but still not sufficient to justify the full answer. Therefore, I couldn't find an answer to this question based on the provided context.
+
+Information missing: A specific example or scenario where the top retrieved source is relevant but still not sufficient to justify the full answer.",0.3731,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 3 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-01,Routing,What is BotKit SDK?,High,Plain RAG,"BotKit SDK is a software development kit (SDK) provided by Kore.ai for building conversational AI applications. According to [Source 3], it requires Node.js version 10 or above to run on the same server where the SDK is installed.
+
+I found that information in the context provided, specifically in section ""## Prerequisites"" of [Source 3: https://docs.kore.ai/xo/app-settings/integrations/agents/how-to-configure-agent-transfer/].",0.6627,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 5 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-02,Routing,"Compare BotKit SDK, Android Kore SDK, and AgentAssistWidget, and tell me when to use each.",Medium,Agentic RAG,"Based on the provided context, here's a comparison of BotKit SDK, Android Kore SDK, and AgentAssistWidget:
+
+1. **BotKit SDK**: The BotKit SDK is required for custom integrations that are not hosted by the Platform (Source 2). It requires Node.js version 10 or above to run on the same server as the SDK installation (Source 3).
+2. **Android Kore SDK**: The Android Kore SDK is a platform-specific client library that provides a quick and convenient way to integrate Kore.ai chatbot functionality into custom applications (Source 7). It's designed for developers who want to embed chatbot functionality with minimal coding.
+3. **AgentAssistWidget**: AgentAssistWidget is a widget provided by Kore.ai that offers an interface for agents to interact with customers, including the Assist tab, which actively monitors conversations and offers assistance (Source 4).
+
+When to use each:
+
+* Use **BotKit SDK** when you need to configure custom integrations that are not hosted by the Platform.
+* Use **Android Kore SDK** when developing a custom application that requires chatbot functionality with minimal coding.
+* Use **AgentAssistWidget** as part of your Kore.ai-powered application, especially if you want to provide an interface for agents to interact with customers.
+
+Note: The context does not provide information on the specific use cases or scenarios where each SDK should be used.",0.6726,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Correct,None,10,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, correct routing, 8 sources; primary issue: none."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-03,Routing,What are the API rate limits?,High,Tool,"According to the provided context, the API rate limits are enforced by Quality AI, Contact Center AI, and Case Management, with the same rules applying to all three.
+
+Requests are monitored against a sixty-second limit. As long as the limit is not exceeded, the account/application can continue making requests.
+
+[Source 1: https://docs.kore.ai/xo/apis/automation/rate-limit-quality-ai/]
+
+No additional information about custom or higher rolling rate limits is provided in the context.",0.6851,"vector_search, llm_generation",Correct,Strong,Well-calibrated,Wrong,Tool Failure,7,"Expected a supported outcome; got correct with strong grounding, well-calibrated calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-04,Routing,"What are the prerequisites for Amazon Connect integration, and which SDK should I review if I need mobile support afterward?",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+The prerequisites for Amazon Connect integration include:
+
+* Agent AI
+* AWS Lambda
+* Amazon Kinesis Streams
+* Amazon Connect
+
+According to [Source 3], note that Lambda, Kinesis, and streaming services aren't required for chat-only integrations.
+
+If you need mobile support afterward, you should review the Integration SDK from your representative.",0.6168,"vector_search, llm_generation",Partial,Strong,Underconfident,Correct,False Negative,5,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, correct routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-05,Routing,What is the platform health status?,High,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no information about the platform's health status. The context only provides information about Kore.ai APIs for automation, such as fetching debug logs and publishing bot status.
+
+The possible values for the 'status' field in the response are SUCCESSFUL, FAILED or INPROGRESS [Source 4: https://docs.kore.ai/xo/apis/automation/bot-publish-status/]. However, there is no mention of what these statuses mean or how they relate to the platform's health status.
+
+Without additional context or information about the specific API calls or responses that provide details about the platform's health status, I cannot provide a more definitive answer.",0.4082,"vector_search, llm_generation",Partial,Strong,Underconfident,Wrong,Tool Failure,2,"Expected a supported outcome; got partial with strong grounding, underconfident calibration, wrong routing, 5 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-06,Routing,Summarize the ingestion pipeline of this project.,High,Plain RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, the ingestion pipeline of this project involves the following steps:
+
+1. Upload a file using the `Use the Upload File API` to get the unique identifier (`fileId`) of the uploaded file.
+2. Pass the `fileId` in the Ingest API to ingest and index the contents of the file.
+
+Additionally, structured data can be ingested directly in the request by passing it in JSON format, where each document object includes a `title` and a `chunks` array. The chunks array must map exactly to the configured chunk fields (e.g., `chunkText`, `chunkTitle`, `recordUrl`).
+
+It appears that there is no explicit mention of web crawling or incremental data ingestion in the provided context.
+
+Sources:
+[Source 1: https://docs.kore.ai/xo/apis/searchai/ingest-data/]
+[Source 2: https://docs.kore.ai/xo/apis/searchai/ingest-data/]
+[Source 3: https://docs.kore.ai/xo/apis/searchai/ingest-data/]
+[Source 4: https://docs.kore.ai/xo/administration/data/data-services/]
+[Source 5: https://docs.kore.ai/xo/apis/searchai/advance-search/]
+[Source 6: https://docs.kore.ai/xo/administration/data/using-data-table/]
+[Source 7: https://docs.kore.ai/xo/administration/data/data-as-service/]",0.475,"vector_search, llm_generation",Partial,Medium,Underconfident,Acceptable,False Negative,3,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: false negative."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-07,Routing,"For this answer, explain why you chose an API tool instead of plain retrieval.",Medium,Tool,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I found that the context provides information about various Kore.ai APIs, but it does not directly address the question of why an API tool was chosen over plain retrieval. 
+
+The provided sources mention the benefits of using API tools, such as providing a quick and convenient way to get platform capabilities into custom applications (Source 3), adding an additional layer of security for sensitive information (Source 6), and enabling users to retrieve answers to a given search query (Source 7). However, it does not explicitly state why an API tool was chosen over plain retrieval.
+
+The context also mentions the use of APIs in various scenarios, such as content fetching (Source 1) and user identity management (Source 2). However, without more information on the specific requirements or constraints of the scenario, it is difficult to provide a definitive answer.",0.493,"vector_search, llm_generation",Partial,Weak,Underconfident,Wrong,Tool Failure,0,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, wrong routing, 7 sources; primary issue: tool failure."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-08,Routing,"Break this into steps: find the channel options, identify if a tool is needed, then answer.",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+To break down the process of finding channel options and answering based on the provided context:
+
+Step 1: Find Channel Options
+- For Amazon Connect integration with Salesforce Service Cloud Voice (Amazon Connect Telephony), select the Service Channels.
+- For CX Cloud from Genesys and Salesforce, for both channels, select “both” from the Valuedropdown list.
+
+Step 2: Identify if a Tool is Needed
+- Based on the context provided, it appears that no specific tool is required to answer questions about channel options. However, some steps require using the App Manager or Utility Items (Desktop Only) feature in Kore.ai.
+
+Step 3: Answer
+Since the question does not specify which integration (CX Cloud from Genesys and Salesforce or Amazon Connect with Salesforce Service Cloud Voice) it refers to, I found that information is missing for a clear answer.",0.5816,"vector_search, llm_generation",Partial,Medium,Underconfident,Wrong,Misclassification,1,"Expected a supported outcome; got partial with medium grounding, underconfident calibration, wrong routing, 5 sources; primary issue: misclassification."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-09,Routing,What is the current platform version and what does that imply for deployment choices?,Medium,Hybrid,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+I can't answer your question based on the provided context. The context only discusses Kore.ai bot management, deployment models, and some release notes from the web-kore-sdk GitHub repository, but it doesn't mention anything about the current platform version or its implications for deployment choices. 
+
+If you provide more information or clarify what you are asking, I'll do my best to help.",0.558,"vector_search, llm_generation",Partial,Weak,Underconfident,Acceptable,Weak Retrieval,1,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, acceptable routing, 8 sources; primary issue: weak retrieval."
+/Users/bhuvanraj/Developer/kore.ai-rag/FP_FN_EVALUATION_PLAN.md,RTE-10,Routing,"Which mode should handle this question: simple retrieval, multi-step reasoning, or a tool? Explain.",Medium,Agentic RAG,"⚠️ I'm not confident in this answer. Please verify with the source documents below.
+
+Based on the provided context, I found that there is no information about handling specific questions in terms of modes such as simple retrieval, multi-step reasoning, or a tool. The context only discusses query rephrasing, chunk qualification, intent identification, and other aspects of Kore.ai's functionality.
+
+The relevant sections related to Kore.ai's capabilities are:
+
+* Query Rephrasing (Source 1)
+* Chunk Qualification (Source 1)
+* Intent Identification (Source 3)
+
+However, these sections do not provide information about handling specific questions in terms of modes. Therefore, I was unable to determine which mode should handle the question.
+
+Information is missing regarding how Kore.ai handles different types of questions or queries.",0.4579,"vector_search, llm_generation",Partial,Weak,Underconfident,Correct,Weak Retrieval,2,"Expected a supported outcome; got partial with weak grounding, underconfident calibration, correct routing, 8 sources; primary issue: weak retrieval."
