@@ -24,6 +24,7 @@ class QueryRequest(BaseModel):
 class SourceDocument(BaseModel):
     content: str
     source: str
+    source_url: Optional[str] = None
     score: float
     chunk_id: str
 

@@ -1,3 +1,6 @@
+import os
+import re
+
 from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -11,6 +14,7 @@ from app.models.schemas import (
     ReasoningStep,
 )
 from app.agent.graph import run_agent
+from app.config import DOCUMENTS_DIR
 
 app = FastAPI(title="Kore.ai Knowledge Search Agent", version="0.1.0")
 
@@ -24,6 +28,28 @@ app.add_middleware(
 
 # In-memory ingestion state — persists for the lifetime of the server process
 _ingestion_state: dict = {"status": "idle", "error": None, "result": None}
+
+SOURCE_URL_PATTERN = re.compile(r"^\s*#?\s*Source:\s*(https?://\S+)\s*$", re.MULTILINE)
+
+
+def _resolve_source_url(metadata: dict) -> str | None:
+    source_url = metadata.get("source_url")
+    if source_url:
+        return source_url
+
+    relative_path = metadata.get("doc_id") or metadata.get("source")
+    if not relative_path:
+        return None
+
+    file_path = os.path.join(DOCUMENTS_DIR, relative_path)
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            header = f.read(2000)
+    except OSError:
+        return None
+
+    match = SOURCE_URL_PATTERN.search(header)
+    return match.group(1).strip() if match else None
 
 
 def _run_ingestion_with_tracking():
@@ -105,6 +131,7 @@ async def query(request: QueryRequest):
             SourceDocument(
                 content=r.get("content", ""),
                 source=r.get("metadata", {}).get("source", "unknown"),
+                source_url=_resolve_source_url(r.get("metadata", {})),
                 score=r.get("score", 0.0),
                 chunk_id=r.get("chunk_id", ""),
             )

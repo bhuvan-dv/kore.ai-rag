@@ -1,9 +1,19 @@
+import { useState } from "react";
+
 export default function SourcePanel({ sources, confidence, confidenceLevel = "low" }) {
+    const [expandedSources, setExpandedSources] = useState({});
     const summary = {
         high: "Confident",
         medium: "Medium / cautious",
         low: "Low confidence",
     }[confidenceLevel];
+
+    const toggleSource = (index) => {
+        setExpandedSources((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
 
     return (
         <div className="source-panel">
@@ -38,13 +48,38 @@ export default function SourcePanel({ sources, confidence, confidenceLevel = "lo
                 {sources.map((src, i) => (
                     <div key={i} className="source-card">
                         <div className="source-header">
-                            <span className="source-num">Source {i + 1}</span>
+                            <div className="source-heading">
+                                <span className="source-num">Source {i + 1}</span>
+                                {src.source_url ? (
+                                    <a
+                                        className="source-link"
+                                        href={src.source_url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        {src.source_url}
+                                    </a>
+                                ) : (
+                                    <span className="source-path">{src.source}</span>
+                                )}
+                            </div>
                             <span className="source-score">
                                 {(src.score * 100).toFixed(0)}% match
                             </span>
                         </div>
-                        <p className="source-path">{src.source}</p>
-                        <p className="source-content">{src.content.slice(0, 200)}…</p>
+                        {src.source_url && (
+                            <p className="source-path">{src.source}</p>
+                        )}
+                        <div className={`source-content ${expandedSources[i] ? "expanded" : "collapsed"}`}>
+                            {src.content}
+                        </div>
+                        <button
+                            className="source-toggle"
+                            onClick={() => toggleSource(i)}
+                            type="button"
+                        >
+                            {expandedSources[i] ? "Show less" : "Show more"}
+                        </button>
                     </div>
                 ))}
             </div>
