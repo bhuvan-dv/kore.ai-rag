@@ -24,6 +24,7 @@ class QueryRequest(BaseModel):
 class SourceDocument(BaseModel):
     content: str
     source: str
+    source_url: Optional[str] = None
     score: float
     chunk_id: str
 
@@ -40,5 +41,6 @@ class QueryResponse(BaseModel):
     sources: list[SourceDocument] = []
     reasoning: list[ReasoningStep] = []
     confidence: float
+    confidence_level: str
     is_confident: bool
     query: str

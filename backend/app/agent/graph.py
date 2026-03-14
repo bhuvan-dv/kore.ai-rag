@@ -36,17 +36,42 @@ Why this design?
 """
 
 import json
+import os
+import re
 from langgraph.graph import StateGraph, START, END
 
-from app.config import CONFIDENCE_THRESHOLD
+from app.config import DOCUMENTS_DIR, HIGH_CONFIDENCE_THRESHOLD, MEDIUM_CONFIDENCE_THRESHOLD
 from app.llm import llm_generate
 from app.agent.state import AgentState
 from app.agent.tools import vector_search_tool, api_lookup_tool, structured_lookup_tool
 
 
+SOURCE_URL_PATTERN = re.compile(r"^\s*#?\s*Source:\s*(https?://\S+)\s*$", re.MULTILINE)
+
+
 # ═══════════════════════════════════════════════════════════════
 #  GRAPH NODES — each node is a function: state → partial update
 # ═══════════════════════════════════════════════════════════════
+
+
+def resolve_source_reference(metadata: dict) -> str:
+    source_url = metadata.get("source_url")
+    if source_url:
+        return source_url
+
+    relative_path = metadata.get("doc_id") or metadata.get("source")
+    if not relative_path:
+        return "unknown"
+
+    file_path = os.path.join(DOCUMENTS_DIR, relative_path)
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            header = f.read(2000)
+    except OSError:
+        return relative_path
+
+    match = SOURCE_URL_PATTERN.search(header)
+    return match.group(1).strip() if match else relative_path
 
 
 def classify_query(state: AgentState) -> dict:
@@ -257,7 +282,7 @@ def synthesize_answer(state: AgentState) -> dict:
     # Build context string from search results
     context_parts = []
     for i, r in enumerate(search_results):
-        source = r.get("metadata", {}).get("source", "unknown")
+        source = resolve_source_reference(r.get("metadata", {}))
         context_parts.append(f"[Source {i + 1}: {source}]\n{r['content']}")
     context = "\n\n---\n\n".join(context_parts)
 
@@ -278,6 +303,8 @@ RULES:
    and what information is missing.
 3. Cite sources using [Source N] notation.
 4. Be concise but thorough.
+5. Do NOT print raw local markdown file paths in the answer.
+6. If you include a Sources section, list the original source URLs, not `.md` filenames.
 
 CONTEXT:
 {context}
@@ -332,12 +359,27 @@ def score_confidence(state: AgentState) -> dict:
         confidence = min(1.0, confidence + 0.15)
 
     confidence = round(max(0.0, min(1.0, confidence)), 4)
-    is_confident = confidence >= CONFIDENCE_THRESHOLD
+
+    if confidence >= HIGH_CONFIDENCE_THRESHOLD:
+        confidence_level = "high"
+    elif confidence >= MEDIUM_CONFIDENCE_THRESHOLD:
+        confidence_level = "medium"
+    else:
+        confidence_level = "low"
+
+    is_confident = confidence_level == "high"
 
     step_num = len(state.get("reasoning", [])) + 1
-    label = "✅ Confident" if is_confident else "⚠️ Low confidence"
+    if confidence_level == "high":
+        label = "✅ Confident"
+    elif confidence_level == "medium":
+        label = "⚠️ Medium confidence"
+    else:
+        label = "⚠️ Low confidence"
+
     return {
         "confidence": confidence,
+        "confidence_level": confidence_level,
         "is_confident": is_confident,
         "reasoning": [
             {
@@ -428,6 +470,7 @@ async def run_agent(query: str, top_k: int = 5, conversation_id: str = None) -> 
         "search_results": [],
         "answer": "",
         "confidence": 0.0,
+        "confidence_level": "low",
         "is_confident": False,
         "reasoning": [],
         "api_result": None,
@@ -453,9 +496,7 @@ if __name__ == "__main__":
             print(f"Q: {q}")
             result = await run_agent(q)
             print(f"Type: {result['query_type']}")
-            print(
-                f"Confidence: {result['confidence']:.2f} ({'✅' if result['is_confident'] else '⚠️'})"
-            )
+            print(f"Confidence: {result['confidence']:.2f} ({result['confidence_level']})")
             print(f"Tools: {result['tools_used']}")
             print(f"Steps: {len(result['reasoning'])}")
             print(f"Answer: {result['answer'][:200]}...")

@@ -6,6 +6,7 @@ The chunker and embedder consume these downstream.
 
 import os
 import glob
+import re
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -20,6 +21,14 @@ class Document:
     content: str  # raw text from the file
     metadata: dict = field(default_factory=dict)  # source info, type, size
     doc_id: Optional[str] = None  # unique key (relative path)
+
+
+SOURCE_URL_PATTERN = re.compile(r"^\s*#?\s*Source:\s*(https?://\S+)\s*$", re.MULTILINE)
+
+
+def extract_source_url(content: str) -> Optional[str]:
+    match = SOURCE_URL_PATTERN.search(content)
+    return match.group(1).strip() if match else None
 
 
 def load_documents(directory: str = DOCUMENTS_DIR) -> list[Document]:
@@ -56,6 +65,7 @@ def load_documents(directory: str = DOCUMENTS_DIR) -> list[Document]:
                     content=content,
                     metadata={
                         "source": relative_path,
+                        "source_url": extract_source_url(content),
                         "source_type": os.path.splitext(file_path)[1].lstrip("."),
                         "source_category": source_category,
                         "file_size": len(content),
