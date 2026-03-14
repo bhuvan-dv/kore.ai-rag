@@ -36,17 +36,42 @@ Why this design?
 """
 
 import json
+import os
+import re
 from langgraph.graph import StateGraph, START, END
 
-from app.config import HIGH_CONFIDENCE_THRESHOLD, MEDIUM_CONFIDENCE_THRESHOLD
+from app.config import DOCUMENTS_DIR, HIGH_CONFIDENCE_THRESHOLD, MEDIUM_CONFIDENCE_THRESHOLD
 from app.llm import llm_generate
 from app.agent.state import AgentState
 from app.agent.tools import vector_search_tool, api_lookup_tool, structured_lookup_tool
 
 
+SOURCE_URL_PATTERN = re.compile(r"^\s*#?\s*Source:\s*(https?://\S+)\s*$", re.MULTILINE)
+
+
 # ═══════════════════════════════════════════════════════════════
 #  GRAPH NODES — each node is a function: state → partial update
 # ═══════════════════════════════════════════════════════════════
+
+
+def resolve_source_reference(metadata: dict) -> str:
+    source_url = metadata.get("source_url")
+    if source_url:
+        return source_url
+
+    relative_path = metadata.get("doc_id") or metadata.get("source")
+    if not relative_path:
+        return "unknown"
+
+    file_path = os.path.join(DOCUMENTS_DIR, relative_path)
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            header = f.read(2000)
+    except OSError:
+        return relative_path
+
+    match = SOURCE_URL_PATTERN.search(header)
+    return match.group(1).strip() if match else relative_path
 
 
 def classify_query(state: AgentState) -> dict:
@@ -257,7 +282,7 @@ def synthesize_answer(state: AgentState) -> dict:
     # Build context string from search results
     context_parts = []
     for i, r in enumerate(search_results):
-        source = r.get("metadata", {}).get("source", "unknown")
+        source = resolve_source_reference(r.get("metadata", {}))
         context_parts.append(f"[Source {i + 1}: {source}]\n{r['content']}")
     context = "\n\n---\n\n".join(context_parts)
 
@@ -278,6 +303,8 @@ RULES:
    and what information is missing.
 3. Cite sources using [Source N] notation.
 4. Be concise but thorough.
+5. Do NOT print raw local markdown file paths in the answer.
+6. If you include a Sources section, list the original source URLs, not `.md` filenames.
 
 CONTEXT:
 {context}
