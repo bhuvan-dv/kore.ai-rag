@@ -300,7 +300,7 @@ Generated outputs go to `evaluation_outputs/`:
 Submission-ready design docs are included here:
 
 - [TECHNICAL_DESIGN_DOCUMENT.html](https://github.com/bhuvan-dv/kore.ai-rag/blob/eval/metrics/TECHNICAL_DESIGN_DOCUMENT.html)
-
+- [TECHNICAL_DESIGN_DOCUMENT.pdf](https://github.com/bhuvan-dv/kore.ai-rag/blob/eval/metrics/Technical%20Design%20Document%20-%20Enterprise%20Knowledge%20Search%20Agent.pdf)
 ## Current Status
 
 Implemented:
