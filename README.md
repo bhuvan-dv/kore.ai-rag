@@ -185,6 +185,7 @@ Notes:
 
 - The current retriever uses `sentence-transformers`, so the embedding model must be available locally or downloadable once.
 - You do not need a separate `chroma run ...` server for this project because ChromaDB is used via `PersistentClient`.
+- chroma run --host localhost --port 8000 --path ./data/chroma_db
 
 ### 3. Scrape source data
 
@@ -331,3 +332,38 @@ Not yet implemented or still limited:
 ## License
 
 MIT
+
+
+Questions or prompts to run:
+****
+Category 1: Simple RAG (single vector search)
+What is a dialog task in Kore.ai? 
+How do I create a dialog task?
+What is BotKit SDK?
+
+Category 2: Complex (decompose + multi-search)
+Compare dialog tasks and alert tasks, then list which channels are supported?
+What channels are supported, and which SDK README would I check for web integration?
+Answer using both docs and structured data: Which channels are supported? F
+
+Category 3: Guardrails / Low Confidence
+Is Kore.ai the same as AWS?
+Who is the CEO of Kore.ai?
+What is Kore.ai's exact per-agent monthly price for Agent AI Voice?
+
+Category 4: API Tool Path
+What are the platform API rate limits?
+What is the platform health status?
+What is the current platform version?
+
+Category 5: Known Failures (show self-awareness)
+What channels does Kore.ai support?
+What are the API rate limits?
+
+D1:
+How do I create a dialog task? (simple)
+Compare dialog tasks and alert tasks, then list which channels are supported? (complex)
+Compare Agent AI, Search AI, and XO Platform in one answer, then tell me which would best fit a support team with omnichannel needs.
+What is Kore.ai's exact per-agent monthly price? (no hallucination)
+Show me a complex query that is truly decomposed into multiple steps. If all queries follow the same path, where is the agentic behavior?
+What is BotKit SDK? (GitHub README)
